@@ -15,7 +15,7 @@ describe Calculator do
     it 'has an of a sizer from the Sizer class' do
       expect(calculator.sizer).to be_an_instance_of(Sizer)
     end
-    
+
   end
 
   describe '#parcel_cost' do
@@ -25,6 +25,13 @@ describe Calculator do
       parcel = double('Parcel')
       new_calculator = described_class.new(sizer)
       expect(new_calculator.parcel_cost(parcel)).to eq 3.00
+    end
+
+    it 'returns the right cost for a medium parcel' do
+      sizer = medium_sizer() # a sizer that always categorises parcels as small
+      parcel = double('Parcel')
+      new_calculator = described_class.new(sizer)
+      expect(new_calculator.parcel_cost(parcel)).to eq 8.00
     end
 
   end
