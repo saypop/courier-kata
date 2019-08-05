@@ -151,4 +151,12 @@ describe Menu do
     end
   end
 
+  describe '#exit_message' do
+    it 'returns a string announcing an exit' do
+      expect(menu.exit_message).to eq(
+        "Oh captain my captain, it's been a pleasure serving you. Until you need me again, you know where to find me... so long."
+      )
+    end
+  end
+
 end

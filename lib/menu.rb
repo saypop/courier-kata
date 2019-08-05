@@ -33,7 +33,8 @@ class Menu
       :announce_final_quote => "Took a second chief, but here's that final quote!",
       :confirm_reset => "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') ",
       :announce_reset => "Nothing like a fresh start! Your batch is empty and ready to be added to.",
-      :confirm_exit => "Ok, leaving now will mean you lose your current batch. Are you sure? ('yes' or 'no') "
+      :confirm_exit => "Ok, leaving now will mean you lose your current batch. Are you sure? ('yes' or 'no') ",
+      :exit_message => "Oh captain my captain, it's been a pleasure serving you. Until you need me again, you know where to find me... so long."
     }
   end
 
@@ -99,6 +100,10 @@ class Menu
 
   def confirm_exit
     @options[:confirm_exit]
+  end
+
+  def exit_message
+    @options[:exit_message]
   end
 
 end
