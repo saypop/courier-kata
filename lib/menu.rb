@@ -12,12 +12,13 @@ class Menu
       If you want to give me instructions in English just type the instruction without quotation marks and press enter.
       If you'd like to turn me off at anytime just type and enter: 'end'.
       To get started please type and enter: 'start'",
-      :get_started => "Great, let's get started.",
+      :get_started => "Let's get started!",
       :main_menu => "Please select an option from the menu below.
       1: Add a new parcel to your current batch.
       2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
       3: Get the final quote for your current batch.
-      0: Shut me down :( You will lose your progress if you do this."
+      0: Shut me down :( You will lose your progress if you do this.",
+      :add_parcel => "Adding parcels to batches is what I love to do."
     }
   end
 
@@ -31,6 +32,10 @@ class Menu
 
   def main_menu
     @options[:main_menu]
+  end
+
+  def add_parcel
+    @options[:add_parcel]
   end
 
 end

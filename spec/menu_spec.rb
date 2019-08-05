@@ -27,7 +27,7 @@ describe Menu do
   describe '#get_started' do
     it 'returns the get started string' do
       expect(menu.get_started).to eq(
-        "Great, let's get started."
+        "Let's get started!"
       )
     end
   end
@@ -41,6 +41,14 @@ describe Menu do
         3: Get the final quote for your current batch.
         0: Shut me down :( You will lose your progress if you do this.".delete(' ')
         )
+    end
+  end
+
+  describe '#add_parcel' do
+    it 'returns the add parcel string' do
+      expect(menu.add_parcel).to eq(
+        "Adding parcels to batches is what I love to do."
+      )
     end
   end
 
