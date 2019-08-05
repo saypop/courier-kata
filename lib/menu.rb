@@ -19,16 +19,18 @@ class Menu
       2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
       3: View your current batch.
       4: Get the final quote for your current batch.
+      5: Start a new batch.
       0: Shut me down :( You will lose your progress if you do this.",
       :add_parcel => "Adding parcels to batches is what I love to do.",
       :request_length => "Can I get the length of the parcel (in cm)? ", # some repitition here
       :request_width => "Can I get the width of the parcel (in cm)? ",
       :request_height => "Can I get the height of the parcel (in cm)? ",
       :parcel_added => "Good news! I've successfully added that parcel to your batch.",
-      :announce_quote => "Here you go boss! This is how much it will cost for that single parcel.",
+      :announce_single_quote => "Here you go boss! This is how much it will cost for that single parcel.",
       :add_quote => "If you're happy with that I can add the parcel to your batch. Want me to do that? ('yes' or 'no') ",
       :announce_batch => "Hopping to it chief! Here's your batch as it stands:",
-      :prepare_quote => "Gotcha. Give me a second while I prepare that"
+      :prepare_quote => "Gotcha. Give me a second while I prepare that",
+      :announce_final_quote => "Took a second chief, but here's that final quote!"
 
     }
   end
@@ -65,8 +67,8 @@ class Menu
     @options[:parcel_added]
   end
 
-  def announce_quote
-    @options[:announce_quote]
+  def announce_single_quote
+    @options[:announce_single_quote]
   end
 
   def add_quote
@@ -79,6 +81,10 @@ class Menu
 
   def prepare_quote
     @options[:prepare_quote]
+  end
+
+  def announce_final_quote
+    @options[:announce_final_quote]
   end
 
 end

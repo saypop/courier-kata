@@ -41,6 +41,7 @@ describe Menu do
         2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
         3: View your current batch.
         4: Get the final quote for your current batch.
+        5: Start a new batch.
         0: Shut me down :( You will lose your progress if you do this.".delete(' ')
         )
     end
@@ -86,9 +87,9 @@ describe Menu do
     end
   end
 
-  describe '#announce_quote' do
+  describe '#announce_single_quote' do
     it 'returns a string announcing a single quote' do
-      expect(menu.announce_quote).to eq(
+      expect(menu.announce_single_quote).to eq(
         "Here you go boss! This is how much it will cost for that single parcel."
       )
     end
@@ -111,9 +112,17 @@ describe Menu do
   end
 
   describe '#prepare_quote' do
-    it 'returns a string announcing a final quote' do
+    it 'returns a string preparing a final quote' do
       expect(menu.prepare_quote).to eq(
         "Gotcha. Give me a second while I prepare that"
+      )
+    end
+  end
+
+  describe '#announce_final_quote' do
+    it 'returns a string announcing a final quote' do
+      expect(menu.announce_final_quote).to eq(
+        "Took a second chief, but here's that final quote!"
       )
     end
   end
