@@ -24,6 +24,11 @@ describe Sizer do
       large_box = double('parcel', name: 'Large Box', length: 90, width: 45, height: 5)
       expect(sizer.categorise(large_box)).to eq 'Large'
     end
+
+    it 'returns a XL category for XL parcels' do
+      xl_box = double('parcel', name: 'XL Box', length: 200, width: 145, height: 55)
+      expect(sizer.categorise(xl_box)).to eq 'XL'
+    end
   end
 
 end
