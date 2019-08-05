@@ -23,6 +23,7 @@ After you have followed the setup instructions, run the tests with RSpec:
 `$ rspec -e "Test name"     ## runs a specific test`
 
 ## Approach
+### Task 1
 _As instructed I approached the problem in a step wise manner._
 The first task was to implement a simple cost calculator based on the size of the parcels.
 I know from the output requirements that the calculation needs to be done on a collection of parcels, this indicates that I will need two classes:
@@ -37,7 +38,7 @@ _I also need something to do the calculations, which gives rise to another class
 
 _At this point I envisage an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to four more classes._
 4. A Menu class: instances of which contain the instructions for each stage of the user journey and methods that return those steps;
-5. A Receiver class: instances of which receive and store input from the user;
+5. A Receiver class: instances of which receive and share input from the user;
 6. A Compiler class: instances of which generate the objects that need to be printed as outputs; and
 7. A Printer class: instances of which prints out instructions from the menu and results from the calculator.
 
