@@ -8,6 +8,11 @@ describe Batch do
     it 'has a batch number property' do
       expect(batch_123.batch_number).to eq 123
     end
+
+    it 'has an empty array for storing parcels in' do
+      expect(batch_123.parcels).to be_an(Array)
+      expect(batch_123.parcels.length).to eq 0
+    end
     
   end
 
