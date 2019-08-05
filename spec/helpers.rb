@@ -9,3 +9,9 @@ def medium_sizer()
   allow(sizer).to receive(:categorise).and_return('Medium')
   sizer
 end
+
+def large_sizer()
+  sizer = double('Sizer')
+  allow(sizer).to receive(:categorise).and_return('Large')
+  sizer
+end

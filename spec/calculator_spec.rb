@@ -28,10 +28,17 @@ describe Calculator do
     end
 
     it 'returns the right cost for a medium parcel' do
-      sizer = medium_sizer() # a sizer that always categorises parcels as small
+      sizer = medium_sizer() # a sizer that always categorises parcels as medium
       parcel = double('Parcel')
       new_calculator = described_class.new(sizer)
       expect(new_calculator.parcel_cost(parcel)).to eq 8.00
+    end
+
+    it 'returns the right cost for a large parcel' do
+      sizer = large_sizer() # a sizer that always categorises parcels as large
+      parcel = double('Parcel')
+      new_calculator = described_class.new(sizer)
+      expect(new_calculator.parcel_cost(parcel)).to eq 15.00
     end
 
   end
