@@ -18,7 +18,8 @@ describe Menu do
         I'll provide you with numbered options as we go along but you can talk to me in English too.
         Whenever I give you numbered options just type in the number and press enter.
         If you want to give me instructions in English just type the instruction without quotation marks and press enter.
-        If you'd like to turn me off at anytime just type and enter: 'end'.
+        If you'd like to turn me off at anytime just type and enter: 'exit'.
+        If you'd like to stop what I'm doing and go back at anytime just type and enter: 'back'.
         To get started please type and enter: 'start'".delete(' ')
       )
     end
@@ -38,7 +39,8 @@ describe Menu do
         "Please select an option from the menu below.
         1: Add a new parcel to your current batch.
         2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
-        3: Get the final quote for your current batch.
+        3: View your current batch.
+        4: Get the final quote for your current batch.
         0: Shut me down :( You will lose your progress if you do this.".delete(' ')
         )
     end
@@ -72,6 +74,14 @@ describe Menu do
     it 'returns a string asking for the height of the parcel' do
       expect(menu.request_height).to eq(
         "Can I get the height of the parcel (in cm)? "
+      )
+    end
+  end
+
+  describe '#parcel_added' do
+    it 'returns a string saying the parcel has been added' do
+      expect(menu.parcel_added).to eq(
+        "Good news! I've successfully added that parcel to your batch."
       )
     end
   end
