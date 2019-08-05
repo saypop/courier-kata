@@ -36,4 +36,11 @@ describe Receiver do
     end
   end
 
+  describe '#main_menu_choice' do
+    it 'returns null when given an invalid option' do
+      expect(receiver.main_menu_choice('foo')).to eq nil
+    end
+
+  end
+
 end

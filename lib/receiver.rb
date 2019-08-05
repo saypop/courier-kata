@@ -14,4 +14,8 @@ class Receiver
     @pre_menu_options[selection]
   end
 
+  def main_menu_choice(selection)
+    @main_menu_options[selection]
+  end
+
 end
