@@ -13,5 +13,15 @@ describe Calculator do
     end
   end
 
+  describe '#parcel_cost' do
+
+    it 'returns the right cost for a small parcel' do
+      sizer = small_sizer() # a sizer that always categorises parcels as small
+      parcel = double('Parcel')
+      new_calculator = described_class.new(sizer)
+      expect(new_calculator.parcel_cost(parcel)).to eq 3.00
+    end
+
+  end
 
 end
