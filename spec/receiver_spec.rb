@@ -81,4 +81,26 @@ describe Receiver do
 
   end
 
+  describe '#yes_no_choice' do
+    it 'returns nil when given an invalid option' do
+      expect(receiver.yes_no_choice('foo')).to eq nil
+    end
+
+    it 'returns :yes when given yes as an option' do
+      expect(receiver.yes_no_choice('yes')).to eq :yes
+    end
+
+    it 'returns :no when given no as an option' do
+      expect(receiver.yes_no_choice('no')).to eq :no
+    end
+
+    it 'returns :back when given back as an option' do
+      expect(receiver.yes_no_choice('back')).to eq :back
+    end
+
+    it 'returns :exit when given exit as an option' do
+      expect(receiver.yes_no_choice('exit')).to eq :exit
+    end
+
+  end
 end
