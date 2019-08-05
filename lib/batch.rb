@@ -7,4 +7,8 @@ class Batch
     @parcels = []
   end
 
+  def add(parcel)
+    @parcels << parcel
+  end
+
 end
