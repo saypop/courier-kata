@@ -38,4 +38,10 @@ describe Compiler do
       )
     end
   end
+
+  describe '#fix_width' do
+    it 'truncates a long string to 13 characters' do
+      expect(compiler.fix_width('12345678901234567890')).to eq('1234567890123 ')
+    end
+  end
 end

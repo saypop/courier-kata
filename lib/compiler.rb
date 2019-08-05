@@ -24,4 +24,9 @@ class Compiler
     "
   end
 
+  def fix_width(input)
+    input.length <= 13? ((13 - input.length).times { input << " " }) : (input = input[0...13])
+    return input + " "
+  end
+
 end
