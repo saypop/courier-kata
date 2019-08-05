@@ -6,10 +6,10 @@ class Calculator
 
   def initialize(sizer = Sizer.new)
     @size_price_map = {
-      'Small' => 3.00,
-      'Medium' => 8.00,
-      'Large' => 15.00,
-      'XL' => 25.00
+      :Small => 3.00,
+      :Medium => 8.00,
+      :Large => 15.00,
+      :XL => 25.00
     }
     @sizer = sizer
   end
