@@ -19,7 +19,7 @@ describe Receiver do
   end
 
   describe '#pre_menu_choice' do
-    it 'returns null when given an invalid option' do
+    it 'returns nil when given an invalid option' do
       expect(receiver.pre_menu_choice('foo')).to eq nil
     end
 
@@ -37,8 +37,12 @@ describe Receiver do
   end
 
   describe '#main_menu_choice' do
-    it 'returns null when given an invalid option' do
+    it 'returns nil when given an invalid option' do
       expect(receiver.main_menu_choice('foo')).to eq nil
+    end
+
+    it 'returns :one when given 1 as an option' do
+      expect(receiver.main_menu_choice(1)).to eq :one
     end
 
   end
