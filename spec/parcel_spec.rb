@@ -11,5 +11,9 @@ describe Parcel do
     it 'has a length property' do
       expect(brown_box.length).to eq 40
     end
+
+    it 'has a width property' do
+      expect(brown_box.width).to eq 20
+    end
   end
 end
