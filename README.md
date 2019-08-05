@@ -27,7 +27,7 @@ _As instructed I approached the problem in a step wise manner._
 The first task was to implement a simple cost calculator based on the size of the parcels.
 I know from the output requirements that the calculation needs to be done on a collection of parcels, this indicates that I will need two classes:
 1. A Parcel class: which will contain info specific to each parcel, in this first instance that would be length, width, and height.  I will also include a name attribute to make reading the output easier.
-2. A Batch class: which will contain the collection of all parcels in a specific batch.
+2. A Batch class: which will contain the collection of all parcels in a specific batch. So it will require an add method which adds a parcel to the batch.
 
 _I also need something to do the calculations, which gives rise to another class._
 3. A Calculator class: instances of which will need to have a method like:
