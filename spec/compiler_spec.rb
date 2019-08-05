@@ -1,0 +1,26 @@
+require 'compiler'
+
+describe Compiler do
+  let(:compiler) {described_class.new()}
+
+  describe '#initialize' do
+    it 'has an of a sizer from the Sizer class' do
+      expect(compiler.sizer).to be_an_instance_of(Sizer)
+    end
+  end
+
+  # describe '#parcel_output' do
+  #   it 'compiles the cost output of a small parcel' do
+  #     sizer = small_sizer()
+  #     parcel = generate_small_parcel
+  #     calculator = generate_small_calculator
+  #     compiler = described_class.new(sizer, calculator)
+  #     expect(compiler.parcel_output(parcel)).to eq(
+  #       "| NAME             | TYPE             | COST             |
+  #       |--------------------------------------------------------|
+  #       | Small Box         | Small            | $3.00           |
+  #       |--------------------------------------------------------|"
+  #     )
+  #   end
+  # end
+end
