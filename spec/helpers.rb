@@ -15,3 +15,9 @@ def large_sizer()
   allow(sizer).to receive(:categorise).and_return('Large')
   sizer
 end
+
+def xl_sizer()
+  sizer = double('Sizer')
+  allow(sizer).to receive(:categorise).and_return('XL')
+  sizer
+end

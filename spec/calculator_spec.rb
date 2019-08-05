@@ -41,6 +41,13 @@ describe Calculator do
       expect(new_calculator.parcel_cost(parcel)).to eq 15.00
     end
 
+    it 'returns the right cost for an XL parcel' do
+      sizer = xl_sizer() # a sizer that always categorises parcels as XL
+      parcel = double('Parcel')
+      new_calculator = described_class.new(sizer)
+      expect(new_calculator.parcel_cost(parcel)).to eq 25.00
+    end
+
   end
 
 end
