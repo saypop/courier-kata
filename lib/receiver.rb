@@ -1,10 +1,17 @@
 class Receiver
 
-  attr_reader :acceptable_strings, :acceptable_integers
+  attr_reader :pre_menu_options, :main_menu_options
 
   def initialize
-    @acceptable_strings = ['exit', 'back', 'start', 'yes', 'no']
-    @acceptable_integers = [1, 2, 3, 4, 5, 0]
+    @pre_menu_options = { 'exit' => :exit, 'start' => :start }
+    @main_menu_options = {
+      1 => :one, 2 => :two, 3 => :three, 4 => :four,
+      5 => :five, 0 => :exit, 'exit' => :exit
+    }
+  end
+
+  def pre_menu_choice(selection)
+    @pre_menu_options[selection]
   end
 
 end
