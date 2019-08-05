@@ -52,5 +52,13 @@ describe Menu do
     end
   end
 
+  describe '#request_length' do
+    it 'returns a string asking for the length of the parcel' do
+      expect(menu.request_length).to eq(
+        "Can I get the length of that parcel (in cm)? "
+      )
+    end
+  end
+
 
 end

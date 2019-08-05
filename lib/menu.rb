@@ -18,7 +18,8 @@ class Menu
       2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
       3: Get the final quote for your current batch.
       0: Shut me down :( You will lose your progress if you do this.",
-      :add_parcel => "Adding parcels to batches is what I love to do."
+      :add_parcel => "Adding parcels to batches is what I love to do.",
+      :request_length => "Can I get the length of that parcel (in cm)? "
     }
   end
 
@@ -36,6 +37,10 @@ class Menu
 
   def add_parcel
     @options[:add_parcel]
+  end
+
+  def request_length
+    @options[:request_length]
   end
 
 end
