@@ -127,5 +127,12 @@ describe Menu do
     end
   end
 
+  describe '#confirm_reset' do
+    it 'returns a string asking to reset the batch' do
+      expect(menu.confirm_reset).to eq(
+        "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') "
+      )
+    end
+  end
 
 end

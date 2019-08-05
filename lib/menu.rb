@@ -30,8 +30,8 @@ class Menu
       :add_quote => "If you're happy with that I can add the parcel to your batch. Want me to do that? ('yes' or 'no') ",
       :announce_batch => "Hopping to it chief! Here's your batch as it stands:",
       :prepare_quote => "Gotcha. Give me a second while I prepare that",
-      :announce_final_quote => "Took a second chief, but here's that final quote!"
-
+      :announce_final_quote => "Took a second chief, but here's that final quote!",
+      :confirm_reset => "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') "
     }
   end
 
@@ -85,6 +85,10 @@ class Menu
 
   def announce_final_quote
     @options[:announce_final_quote]
+  end
+
+  def confirm_reset
+    @options[:confirm_reset]
   end
 
 end
