@@ -14,15 +14,20 @@ class Receiver
   end
 
   def pre_menu_choice(selection)
-    @pre_menu_options[selection]
+    validate_output(@pre_menu_options[selection])
   end
 
   def main_menu_choice(selection)
-    @main_menu_options[selection]
+    validate_output(@main_menu_options[selection])
   end
 
   def yes_no_choice(selection)
-    @yes_no_options[selection]
+    validate_output(@yes_no_options[selection])
+  end
+
+  def validate_output(output)
+    return :invalid if output.nil?
+    output
   end
 
 end

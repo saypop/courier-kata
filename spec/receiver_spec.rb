@@ -25,8 +25,8 @@ describe Receiver do
   end
 
   describe '#pre_menu_choice' do
-    it 'returns nil when given an invalid option' do
-      expect(receiver.pre_menu_choice('foo')).to eq nil
+    it 'returns :invalid when given an invalid option' do
+      expect(receiver.pre_menu_choice('foo')).to eq :invalid
     end
 
     it 'returns :exit when given exit as an argument' do
@@ -43,8 +43,8 @@ describe Receiver do
   end
 
   describe '#main_menu_choice' do
-    it 'returns nil when given an invalid option' do
-      expect(receiver.main_menu_choice('foo')).to eq nil
+    it 'returns :invalid when given an invalid option' do
+      expect(receiver.main_menu_choice('foo')).to eq :invalid
     end
 
     it 'returns :one when given 1 as an option' do
@@ -82,8 +82,8 @@ describe Receiver do
   end
 
   describe '#yes_no_choice' do
-    it 'returns nil when given an invalid option' do
-      expect(receiver.yes_no_choice('foo')).to eq nil
+    it 'returns :invalid when given an invalid option' do
+      expect(receiver.yes_no_choice('foo')).to eq :invalid
     end
 
     it 'returns :yes when given yes as an option' do
@@ -100,6 +100,16 @@ describe Receiver do
 
     it 'returns :exit when given exit as an option' do
       expect(receiver.yes_no_choice('exit')).to eq :exit
+    end
+  end
+
+  describe '#validate_output' do
+    it 'returns invalid when the output is nil' do
+      expect(receiver.validate_output(nil)).to eq :invalid
+    end
+
+    it 'returns the output when the output is not nil' do
+      expect(receiver.validate_output('not nil')).to eq 'not nil'
     end
 
   end
