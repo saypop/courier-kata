@@ -9,4 +9,11 @@ describe Sizer do
     end
   end
 
+  describe 'categorise' do
+    it 'returns a small category for small parcels' do
+      small_box = double('parcel', name: 'Small Box', length: 9, width: 7, height: 5)
+      expect(sizer.categorise(small_box)).to eq 'Small'
+    end
+  end
+  
 end
