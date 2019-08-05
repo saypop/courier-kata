@@ -111,6 +111,5 @@ describe Receiver do
     it 'returns the output when the output is not nil' do
       expect(receiver.validate_output('not nil')).to eq 'not nil'
     end
-
   end
 end

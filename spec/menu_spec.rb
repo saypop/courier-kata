@@ -159,4 +159,12 @@ describe Menu do
     end
   end
 
+  describe '#request_repeat' do
+    it 'returns a string asking for a repeat of instruction' do
+      expect(menu.options[:request_repeat]).to eq(
+        "Sorry friend, I didn't catch that. Can you try again making sure the response is valid?"
+      )
+    end
+  end
+
 end
