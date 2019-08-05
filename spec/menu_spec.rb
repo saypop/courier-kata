@@ -24,4 +24,25 @@ describe Menu do
     end
   end
 
+  describe '#get_started' do
+    it 'returns the get started string' do
+      expect(menu.get_started).to eq(
+        "Great, let's get started."
+      )
+    end
+  end
+
+  describe '#main_menu' do
+    it 'returns the main menu' do
+      expect(menu.main_menu.delete(' ')).to eq(
+        "Please select an option from the menu below.
+        1: Add a new parcel to your current batch.
+        2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
+        3: Get the final quote for your current batch.
+        0: Shut me down :( You will lose your progress if you do this.".delete(' ')
+        )
+    end
+  end
+
+
 end
