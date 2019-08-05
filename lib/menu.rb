@@ -28,6 +28,7 @@ class Menu
       :announce_quote => "Here you go boss! This is how much it will cost for that single parcel.",
       :add_quote => "If you're happy with that I can add the parcel to your batch. Want me to do that? ('yes' or 'no') ",
       :announce_batch => "Hopping to it chief! Here's your batch as it stands:",
+      :prepare_quote => "Gotcha. Give me a second while I prepare that"
 
     }
   end
@@ -74,6 +75,10 @@ class Menu
 
   def announce_batch
     @options[:announce_batch]
+  end
+
+  def prepare_quote
+    @options[:prepare_quote]
   end
 
 end

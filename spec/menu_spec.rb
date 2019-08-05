@@ -110,5 +110,13 @@ describe Menu do
     end
   end
 
+  describe '#prepare_quote' do
+    it 'returns a string announcing a final quote' do
+      expect(menu.prepare_quote).to eq(
+        "Gotcha. Give me a second while I prepare that"
+      )
+    end
+  end
+
 
 end
