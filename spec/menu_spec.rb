@@ -86,5 +86,21 @@ describe Menu do
     end
   end
 
+  describe '#single_quote' do
+    it 'returns a string announcing a single quote' do
+      expect(menu.single_quote).to eq(
+        "Here you go boss! This is how much it will cost for that single parcel."
+      )
+    end
+  end
+
+  describe '#add_quote' do
+    it 'returns a string asking to add a quote' do
+      expect(menu.add_quote).to eq(
+        "If you're happy with that I can add the parcel to your batch. Want me to do that? (y/n) "
+      )
+    end
+  end
+
 
 end

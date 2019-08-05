@@ -45,4 +45,4 @@ _At this point I envisage an interface that gives the user the option to: add ne
 _While completing this task I found that it would be useful to have another class._
 8. A Sizer class: instances of which will have a method that takes a parcel object and return the appropriate size based on the dimensions of the parcel.
 
-_With all that in mind, I started coding for this step at 12:28pm and completed this task at XX:XXpm._
+_With all that in mind, I started coding for this step at 12:28pm and completed this task at XX:XXpm. Which included about 25 minutes of break time._
