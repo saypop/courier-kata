@@ -6,7 +6,7 @@ describe Receiver do
   describe '#initialize' do
     it 'contains a list of acceptable pre menu inputs' do
       expect(receiver.pre_menu_options).to eq({
-        'exit' => :exit, 'start' => :start
+        'exit' => :exit, 'start' => :start, 'back' => :exit
         })
     end
 
@@ -29,6 +29,10 @@ describe Receiver do
 
     it 'returns :start when given start as an argument' do
       expect(receiver.pre_menu_choice('start')).to eq :start
+    end
+
+    it 'returns :exit when given back as an argument' do
+      expect(receiver.pre_menu_choice('back')).to eq :exit
     end
   end
 
