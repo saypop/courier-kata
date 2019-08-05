@@ -10,10 +10,15 @@ class Compiler
     @calculator = calculator
   end
 
-  def parcel_output(parcel)
+  def header
     "
     | NAME          | TYPE          | COST           |
     |------------------------------------------------|
+    "
+  end
+
+  def parcel_output(parcel)
+    "
     | #{parcel.name}| #{sizer.categorise(parcel)}| $#{format('%.2f', calculator.parcel_cost(parcel))}|
     |------------------------------------------------|
     "

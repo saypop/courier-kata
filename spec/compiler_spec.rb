@@ -13,6 +13,17 @@ describe Compiler do
     end
   end
 
+  describe '#header' do
+    it 'compiles a header for the tables' do
+      expect(compiler.header.delete(' ')).to eq(
+        "
+        | NAME          | TYPE          | COST           |
+        |------------------------------------------------|
+        ".delete(' ')
+      )
+    end
+  end
+
   describe '#parcel_output' do
     it 'compiles the cost output of a small parcel' do
       sizer = generate_small_sizer
@@ -21,8 +32,6 @@ describe Compiler do
       compiler = described_class.new(sizer, calculator)
       expect(compiler.parcel_output(parcel).delete(' ')).to eq(
       "
-      | NAME          | TYPE          | COST           |
-      |------------------------------------------------|
       | Small Box     | Small         | $3.00          |
       |------------------------------------------------|
       ".delete(' ')
