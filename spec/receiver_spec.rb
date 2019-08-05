@@ -27,6 +27,9 @@ describe Receiver do
       expect(receiver.pre_menu_choice('exit')).to eq :exit
     end
 
+    it 'returns :start when given start as an argument' do
+      expect(receiver.pre_menu_choice('start')).to eq :start
+    end
   end
 
 end
