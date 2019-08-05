@@ -11,7 +11,7 @@ describe Menu do
 
   describe '#welcome_message' do
     it 'returns a welcome message' do
-      expect(menu.welcome_message.delete(' ')).to eq(
+      expect(menu.options[:welcome_message].delete(' ')).to eq(
         "Hello, world.
         I am the FundApps courier service bot.
         You can use me to get the cost of sending parcels.
@@ -27,7 +27,7 @@ describe Menu do
 
   describe '#get_started' do
     it 'returns the get started string' do
-      expect(menu.get_started).to eq(
+      expect(menu.options[:get_started]).to eq(
         "Let's get started!"
       )
     end
@@ -35,7 +35,7 @@ describe Menu do
 
   describe '#main_menu' do
     it 'returns the main menu' do
-      expect(menu.main_menu.delete(' ')).to eq(
+      expect(menu.options[:main_menu].delete(' ')).to eq(
         "Please select an option from the menu below.
         1: Add a new parcel to your current batch.
         2: Get a quote on a single item without adding it to your batch (you'll be able to add it later).
@@ -49,7 +49,7 @@ describe Menu do
 
   describe '#add_parcel' do
     it 'returns the add parcel string' do
-      expect(menu.add_parcel).to eq(
+      expect(menu.options[:add_parcel]).to eq(
         "Adding parcels to batches is what I love to do."
       )
     end
@@ -57,7 +57,7 @@ describe Menu do
 
   describe '#request_length' do
     it 'returns a string asking for the length of the parcel' do
-      expect(menu.request_length).to eq(
+      expect(menu.options[:request_length]).to eq(
         "Can I get the length of the parcel (in cm)? "
       )
     end
@@ -65,7 +65,7 @@ describe Menu do
 
   describe '#request_width' do
     it 'returns a string asking for the width of the parcel' do
-      expect(menu.request_width).to eq(
+      expect(menu.options[:request_width]).to eq(
         "Can I get the width of the parcel (in cm)? "
       )
     end
@@ -73,7 +73,7 @@ describe Menu do
 
   describe '#request_height' do
     it 'returns a string asking for the height of the parcel' do
-      expect(menu.request_height).to eq(
+      expect(menu.options[:request_height]).to eq(
         "Can I get the height of the parcel (in cm)? "
       )
     end
@@ -81,7 +81,7 @@ describe Menu do
 
   describe '#parcel_added' do
     it 'returns a string saying the parcel has been added' do
-      expect(menu.parcel_added).to eq(
+      expect(menu.options[:parcel_added]).to eq(
         "Good news! I've successfully added that parcel to your batch."
       )
     end
@@ -89,7 +89,7 @@ describe Menu do
 
   describe '#announce_single_quote' do
     it 'returns a string announcing a single quote' do
-      expect(menu.announce_single_quote).to eq(
+      expect(menu.options[:announce_single_quote]).to eq(
         "Here you go boss! This is how much it will cost for that single parcel."
       )
     end
@@ -97,7 +97,7 @@ describe Menu do
 
   describe '#add_quote' do
     it 'returns a string asking to add a quote' do
-      expect(menu.add_quote).to eq(
+      expect(menu.options[:add_quote]).to eq(
         "If you're happy with that I can add the parcel to your batch. Want me to do that? ('yes' or 'no') "
       )
     end
@@ -105,7 +105,7 @@ describe Menu do
 
   describe '#announce_batch' do
     it 'returns a string announcing an unfinalised batch' do
-      expect(menu.announce_batch).to eq(
+      expect(menu.options[:announce_batch]).to eq(
         "Hopping to it chief! Here's your batch as it stands:"
       )
     end
@@ -113,7 +113,7 @@ describe Menu do
 
   describe '#prepare_quote' do
     it 'returns a string preparing a final quote' do
-      expect(menu.prepare_quote).to eq(
+      expect(menu.options[:prepare_quote]).to eq(
         "Gotcha. Give me a second while I prepare that"
       )
     end
@@ -121,7 +121,7 @@ describe Menu do
 
   describe '#announce_final_quote' do
     it 'returns a string announcing a final quote' do
-      expect(menu.announce_final_quote).to eq(
+      expect(menu.options[:announce_final_quote]).to eq(
         "Took a second chief, but here's that final quote!"
       )
     end
@@ -129,7 +129,7 @@ describe Menu do
 
   describe '#confirm_reset' do
     it 'returns a string asking to reset the batch' do
-      expect(menu.confirm_reset).to eq(
+      expect(menu.options[:confirm_reset]).to eq(
         "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') "
       )
     end
@@ -137,7 +137,7 @@ describe Menu do
 
   describe '#announce_reset' do
     it 'returns a string announcing a batch reset' do
-      expect(menu.announce_reset).to eq(
+      expect(menu.options[:announce_reset]).to eq(
         "Nothing like a fresh start! Your batch is empty and ready to be added to."
       )
     end
@@ -145,7 +145,7 @@ describe Menu do
 
   describe '#confirm_exit' do
     it 'returns a string confirming an exit' do
-      expect(menu.confirm_exit).to eq(
+      expect(menu.options[:confirm_exit]).to eq(
         "Ok, leaving now will mean you lose your current batch. Are you sure? ('yes' or 'no') "
       )
     end
@@ -153,7 +153,7 @@ describe Menu do
 
   describe '#exit_message' do
     it 'returns a string announcing an exit' do
-      expect(menu.exit_message).to eq(
+      expect(menu.options[:exit_message]).to eq(
         "Oh captain my captain, it's been a pleasure serving you. Until you need me again, you know where to find me... so long."
       )
     end

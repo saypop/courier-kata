@@ -4,7 +4,7 @@ class Menu
 
   def initialize
     @options = {
-      :welcome => "Hello, world.
+      :welcome_message => "Hello, world.
       I am the FundApps courier service bot.
       You can use me to get the cost of sending parcels.
       I'll provide you with numbered options as we go along but you can talk to me in English too.
@@ -36,74 +36,6 @@ class Menu
       :confirm_exit => "Ok, leaving now will mean you lose your current batch. Are you sure? ('yes' or 'no') ",
       :exit_message => "Oh captain my captain, it's been a pleasure serving you. Until you need me again, you know where to find me... so long."
     }
-  end
-
-  def welcome_message
-    @options[:welcome]
-  end
-
-  def get_started
-    @options[:get_started]
-  end
-
-  def main_menu
-    @options[:main_menu]
-  end
-
-  def add_parcel
-    @options[:add_parcel]
-  end
-
-  def request_length
-    @options[:request_length]
-  end
-
-  def request_width
-    @options[:request_width]
-  end
-
-  def request_height
-    @options[:request_height]
-  end
-
-  def parcel_added
-    @options[:parcel_added]
-  end
-
-  def announce_single_quote
-    @options[:announce_single_quote]
-  end
-
-  def add_quote
-    @options[:add_quote]
-  end
-
-  def announce_batch
-    @options[:announce_batch]
-  end
-
-  def prepare_quote
-    @options[:prepare_quote]
-  end
-
-  def announce_final_quote
-    @options[:announce_final_quote]
-  end
-
-  def confirm_reset
-    @options[:confirm_reset]
-  end
-
-  def announce_reset
-    @options[:announce_reset]
-  end
-
-  def confirm_exit
-    @options[:confirm_exit]
-  end
-
-  def exit_message
-    @options[:exit_message]
   end
 
 end
