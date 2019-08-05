@@ -2,7 +2,7 @@ require_relative 'sizer'
 
 class Calculator
 
-  attr_reader :size_price_map
+  attr_reader :size_price_map, :sizer
 
   def initialize(sizer = Sizer.new)
     @size_price_map = {

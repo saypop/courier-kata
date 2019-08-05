@@ -11,6 +11,11 @@ describe Calculator do
       expect(calculator.size_price_map['Large']).to eq 15.00
       expect(calculator.size_price_map['XL']).to eq 25.00
     end
+
+    it 'has an of a sizer from the Sizer class' do
+      expect(calculator.sizer).to be_an_instance_of(Sizer)
+    end
+    
   end
 
   describe '#parcel_cost' do
