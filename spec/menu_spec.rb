@@ -143,4 +143,12 @@ describe Menu do
     end
   end
 
+  describe '#confirm_exit' do
+    it 'returns a string confirming an exit' do
+      expect(menu.confirm_exit).to eq(
+        "Ok, leaving now will mean you lose your current batch. Are you sure? ('yes' or 'no') "
+      )
+    end
+  end
+
 end

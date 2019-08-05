@@ -32,7 +32,8 @@ class Menu
       :prepare_quote => "Gotcha. Give me a second while I prepare that",
       :announce_final_quote => "Took a second chief, but here's that final quote!",
       :confirm_reset => "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') ",
-      :announce_reset => "Nothing like a fresh start! Your batch is empty and ready to be added to."
+      :announce_reset => "Nothing like a fresh start! Your batch is empty and ready to be added to.",
+      :confirm_exit => "Ok, leaving now will mean you lose your current batch. Are you sure? ('yes' or 'no') "
     }
   end
 
@@ -94,6 +95,10 @@ class Menu
 
   def announce_reset
     @options[:announce_reset]
+  end
+
+  def confirm_exit
+    @options[:confirm_exit]
   end
 
 end
