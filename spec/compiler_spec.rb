@@ -43,5 +43,9 @@ describe Compiler do
     it 'truncates a long string to 13 characters' do
       expect(compiler.fix_width('12345678901234567890')).to eq('1234567890123 ')
     end
+
+    it 'extends a short string to 13 characters' do
+      expect(compiler.fix_width('12345')).to eq('12345         ')
+    end
   end
 end
