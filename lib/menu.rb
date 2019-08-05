@@ -31,7 +31,8 @@ class Menu
       :announce_batch => "Hopping to it chief! Here's your batch as it stands:",
       :prepare_quote => "Gotcha. Give me a second while I prepare that",
       :announce_final_quote => "Took a second chief, but here's that final quote!",
-      :confirm_reset => "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') "
+      :confirm_reset => "Starting a new batch will mean you lose your current batch. Are you sure? ('yes' or 'no') ",
+      :announce_reset => "Nothing like a fresh start! Your batch is empty and ready to be added to."
     }
   end
 
@@ -89,6 +90,10 @@ class Menu
 
   def confirm_reset
     @options[:confirm_reset]
+  end
+
+  def announce_reset
+    @options[:announce_reset]
   end
 
 end

@@ -135,4 +135,12 @@ describe Menu do
     end
   end
 
+  describe '#announce_reset' do
+    it 'returns a string announcing a batch reset' do
+      expect(menu.announce_reset).to eq(
+        "Nothing like a fresh start! Your batch is empty and ready to be added to."
+      )
+    end
+  end
+
 end
