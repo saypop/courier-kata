@@ -30,14 +30,18 @@ I know from the output requirements that the calculation needs to be done on a c
 2. A Batch class: which will contain the collection of all parcels in a specific batch. So it will require an add method which adds a parcel to the batch.
 
 _I also need something to do the calculations, which gives rise to another class._
-3. A Calculator class: instances of which will need to have a method like:
-    - parcel_cost: that takes a parcel and returns the cost of shipping a parcel; and
-    - batch_cost: takes a batch and returns the total cost of shipping a batch.
+3. A Calculator class: instances of which will need to have methods like:
+    - parcel_cost: that takes a parcel and returns the cost of shipping a parcel;
+    - batch_cost: takes a batch and returns the total cost of shipping a batch; and
+    - This will also need to contain the size limits and associated cost.
 
 _At this point I envisage an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to four more classes._
 4. A Menu class: instances of which contain the instructions for each stage of the user journey and methods that return those steps;
 5. A Receiver class: instances of which receive and store input from the user;
 6. A Compiler class: instances of which generate the objects that need to be printed as outputs; and
 7. A Printer class: instances of which prints out instructions from the menu and results from the calculator.
+
+_While completing this task I found that it would be useful to have another class._
+8. A Sizer class: instances of which will have a method that takes a parcel object and return the appropriate size based on the dimensions of the parcel.
 
 _With all that in mind, I started coding for this step at 12:28pm and completed this task at XX:XXpm._
