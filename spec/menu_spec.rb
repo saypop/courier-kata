@@ -68,5 +68,13 @@ describe Menu do
     end
   end
 
+  describe '#request_height' do
+    it 'returns a string asking for the height of the parcel' do
+      expect(menu.request_height).to eq(
+        "Can I get the height of the parcel (in cm)? "
+      )
+    end
+  end
+
 
 end

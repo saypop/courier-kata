@@ -19,9 +19,9 @@ class Menu
       3: Get the final quote for your current batch.
       0: Shut me down :( You will lose your progress if you do this.",
       :add_parcel => "Adding parcels to batches is what I love to do.",
-      :request_length => "Can I get the length of the parcel (in cm)? ",
-      :request_width => "Can I get the width of the parcel (in cm)? "
-
+      :request_length => "Can I get the length of the parcel (in cm)? ", # some repitition here
+      :request_width => "Can I get the width of the parcel (in cm)? ",
+      :request_height => "Can I get the height of the parcel (in cm)? "
     }
   end
 
@@ -47,6 +47,10 @@ class Menu
 
   def request_width
     @options[:request_width]
+  end
+
+  def request_height
+    @options[:request_height]
   end
 
 end
