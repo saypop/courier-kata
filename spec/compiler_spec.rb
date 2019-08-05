@@ -7,6 +7,10 @@ describe Compiler do
     it 'has an of a sizer from the Sizer class' do
       expect(compiler.sizer).to be_an_instance_of(Sizer)
     end
+
+    it 'has an of a calculator from the Sizer class' do
+      expect(compiler.calculator).to be_an_instance_of(Calculator)
+    end
   end
 
   # describe '#parcel_output' do
