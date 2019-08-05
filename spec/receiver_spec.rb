@@ -22,6 +22,11 @@ describe Receiver do
     it 'returns null when given an invalid option' do
       expect(receiver.pre_menu_choice('foo')).to eq nil
     end
+
+    it 'returns :exit when given exit as an argument' do
+      expect(receiver.pre_menu_choice('exit')).to eq :exit
+    end
+
   end
 
 end
