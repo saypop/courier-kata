@@ -25,8 +25,10 @@ class Menu
       :request_width => "Can I get the width of the parcel (in cm)? ",
       :request_height => "Can I get the height of the parcel (in cm)? ",
       :parcel_added => "Good news! I've successfully added that parcel to your batch.",
-      :single_quote => "Here you go boss! This is how much it will cost for that single parcel.",
-      :add_quote => "If you're happy with that I can add the parcel to your batch. Want me to do that? (y/n) "
+      :announce_quote => "Here you go boss! This is how much it will cost for that single parcel.",
+      :add_quote => "If you're happy with that I can add the parcel to your batch. Want me to do that? ('yes' or 'no') ",
+      :announce_batch => "Hopping to it chief! Here's your batch as it stands:",
+
     }
   end
 
@@ -62,12 +64,16 @@ class Menu
     @options[:parcel_added]
   end
 
-  def single_quote
-    @options[:single_quote]
+  def announce_quote
+    @options[:announce_quote]
   end
 
   def add_quote
     @options[:add_quote]
+  end
+
+  def announce_batch
+    @options[:announce_batch]
   end
 
 end
