@@ -27,6 +27,12 @@ describe Parcel do
       expect(unknown_box.width).to eq 1
       expect(unknown_box.height).to eq 1
     end
-
   end
+
+  describe '#update' do
+    it 'can update the name of a parcel' do
+      expect{ unknown_box.update(name='Known Box') }.to change{ unknown_box.name }.to('Known Box')
+    end
+  end
+
 end

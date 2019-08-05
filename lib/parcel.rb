@@ -11,4 +11,11 @@ class Parcel
     @height = height
   end
 
+  def update(name=DEFAULT_NAME, length=DEFAULT_LENGTH, width=DEFAULT_WIDTH, height=DEFAULT_HEIGHT)
+    @name = name
+    @length = length
+    @width = width
+    @height = height
+  end
+
 end
