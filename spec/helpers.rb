@@ -22,6 +22,18 @@ def generate_xl_sizer
   sizer
 end
 
+def generate_zero_weigher
+  weigher = double('weigher')
+  allow(weigher).to receive(:excess_weight).and_return(0)
+  weigher
+end
+
+def generate_five_weigher
+  weigher = double('weigher')
+  allow(weigher).to receive(:excess_weight).and_return(5)
+  weigher
+end
+
 def generate_small_parcel
   double('Parcel', :length => 9, :width => 8, :height => 7, :weight => 0.5)
 end

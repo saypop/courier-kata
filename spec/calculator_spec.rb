@@ -22,30 +22,42 @@ describe Calculator do
 
     it 'returns the right cost for a small parcel' do
       sizer = generate_small_sizer() # a sizer that always categorises parcels as small
+      weigher = generate_zero_weigher() # a weigher that always reports no excess weight
       parcel = double('Parcel')
-      new_calculator = described_class.new(sizer: sizer)
+      new_calculator = described_class.new(sizer: sizer, weigher: weigher)
       expect(new_calculator.parcel_cost(parcel)).to eq 3.00
     end
 
     it 'returns the right cost for a medium parcel' do
       sizer = generate_medium_sizer() # a sizer that always categorises parcels as medium
+      weigher = generate_zero_weigher() # a weigher that always reports no excess weight
       parcel = double('Parcel')
-      new_calculator = described_class.new(sizer: sizer)
+      new_calculator = described_class.new(sizer: sizer, weigher: weigher)
       expect(new_calculator.parcel_cost(parcel)).to eq 8.00
     end
 
     it 'returns the right cost for a large parcel' do
       sizer = generate_large_sizer() # a sizer that always categorises parcels as large
+      weigher = generate_zero_weigher() # a weigher that always reports no excess weight
       parcel = double('Parcel')
-      new_calculator = described_class.new(sizer: sizer)
+      new_calculator = described_class.new(sizer: sizer, weigher: weigher)
       expect(new_calculator.parcel_cost(parcel)).to eq 15.00
     end
 
     it 'returns the right cost for an XL parcel' do
       sizer = generate_xl_sizer() # a sizer that always categorises parcels as XL
+      weigher = generate_zero_weigher() # a weigher that always reports no excess weight
       parcel = double('Parcel')
-      new_calculator = described_class.new(sizer: sizer)
+      new_calculator = described_class.new(sizer: sizer, weigher: weigher)
       expect(new_calculator.parcel_cost(parcel)).to eq 25.00
+    end
+
+    it 'returns the right cost for an overweight parcel' do
+      sizer = generate_xl_sizer() # a sizer that always categorises parcels as XL
+      weigher = generate_five_weigher() # a weigher that always reports 5kg excess weight
+      parcel = double('Parcel')
+      new_calculator = described_class.new(sizer: sizer, weigher: weigher)
+      expect(new_calculator.parcel_cost(parcel)).to eq 35.00
     end
 
   end

@@ -13,10 +13,11 @@ class Calculator
       :XL => 25.00
     }
     @sizer = sizer
+    @weigher = weigher
   end
 
   def parcel_cost(parcel)
-    @size_price_map[@sizer.categorise(parcel)]
+    @size_price_map[@sizer.categorise(parcel)] + (2 * @weigher.excess_weight(parcel)) 
   end
 
   def batch_cost(batch)
