@@ -20,7 +20,7 @@ _Running the tests_
 After you have followed the setup instructions, run the tests with RSpec:
 `$ rspec                    ## runs the entire test suite`
 `$ rspec spec/file.rb       ## runs a specific test file`
-`$ rspec -e "Test name"     ## runs a specific test`
+`$ rspec -e 'Test name'     ## runs a specific test`
 
 ## Approach
 ### Task 1
