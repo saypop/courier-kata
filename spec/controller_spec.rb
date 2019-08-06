@@ -22,6 +22,10 @@ describe Controller do
       expect(controller.printer).to be_an_instance_of(Printer)
     end
 
+    it 'has a receiver from the Receiver class' do
+      expect(controller.receiver).to be_an_instance_of(Receiver)
+    end
+
     it 'has a validater from the Validater class' do
       expect(controller.validater).to be_an_instance_of(Validater)
     end
@@ -40,6 +44,7 @@ describe Controller do
     let(:compiler) {double('compiler')}
     let(:menu) {double('menu')}
     let(:printer) {double('printer')}
+    let(:receiver) {double('receiver')}
     let(:validater) {double('validater')}
     let(:sizer) {double('sizer')}
     let(:mock_controller) {described_class.new(calculator, compiler, menu, printer, validater, sizer)}
