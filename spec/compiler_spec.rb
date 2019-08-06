@@ -31,7 +31,25 @@ describe Compiler do
       calculator = generate_small_calculator
       compiler = described_class.new(sizer, calculator)
       expect(compiler.parcel_output(parcel).delete(' ')).to eq(
-      "
+      "| Small Box     | Small         | $3.00           |
+      |-------------------------------------------------|
+      ".delete(' ')
+      )
+    end
+  end
+
+  describe '#batch_output' do
+    it 'compiles the cost output of a small parcel' do
+      sizer = generate_small_sizer
+      parcel = generate_small_parcel
+      calculator = generate_small_calculator
+      batch = generate_batch(parcel, parcel, parcel)
+      compiler = described_class.new(sizer, calculator)
+      expect(compiler.batch_output(batch).delete(' ')).to eq(
+      "| Small Box     | Small         | $3.00           |
+      |-------------------------------------------------|
+      | Small Box     | Small         | $3.00           |
+      |-------------------------------------------------|
       | Small Box     | Small         | $3.00           |
       |-------------------------------------------------|
       ".delete(' ')
@@ -44,7 +62,7 @@ describe Compiler do
       expect(compiler.fix_width('12345678901234567890')).to eq('1234567890123 ')
     end
 
-    it 'extends a short string to 13 characters' do
+    it 'extends a short string/symbol to 13 characters' do
       expect(compiler.fix_width('12345')).to eq('12345         ')
     end
   end

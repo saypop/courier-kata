@@ -39,7 +39,8 @@ def generate_xl_parcel
 end
 
 def generate_small_calculator
-  double('Calculator', :parcel_cost => 3.00)
+  calculator = double('Calculator', :parcel_cost => 3.00, :batch_cost => 9.00)
+  calculator
 end
 
 def generate_batch(*parcels)
