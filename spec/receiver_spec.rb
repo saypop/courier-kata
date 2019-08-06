@@ -112,4 +112,11 @@ describe Receiver do
       expect(receiver.validate_output('not nil')).to eq 'not nil'
     end
   end
+
+  describe '#get_input' do
+    it 'gets an input from the user' do
+      allow_any_instance_of(Kernel).to receive(:gets).and_return('start')
+      expect(receiver.get_input).to eq 'start'
+    end
+  end
 end
