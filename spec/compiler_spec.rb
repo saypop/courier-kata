@@ -1,7 +1,7 @@
 require 'compiler'
 
 describe Compiler do
-  let(:compiler) {described_class.new()}
+  let(:compiler) { described_class.new }
 
   describe '#initialize' do
     it 'has an of a sizer from the Sizer class' do
@@ -31,9 +31,9 @@ describe Compiler do
       calculator = generate_small_calculator
       compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.parcel_output(parcel).delete(' ')).to eq(
-      "| Small         | $3.00           |
-      |---------------------------------|
-      ".delete(' ')
+        "| Small         | $3.00           |
+        |---------------------------------|
+        ".delete(' ')
       )
     end
 
@@ -44,9 +44,9 @@ describe Compiler do
       calculator = generate_heavy_calculator
       compiler = described_class.new(sizer: sizer, weigher: weigher, calculator: calculator)
       expect(compiler.parcel_output(parcel).delete(' ')).to eq(
-      "| Heavy         | $50.00          |
-      |---------------------------------|
-      ".delete(' ')
+        "| Heavy         | $50.00          |
+        |---------------------------------|
+        ".delete(' ')
       )
     end
   end
@@ -59,13 +59,26 @@ describe Compiler do
       batch = generate_batch(parcel, parcel, parcel)
       compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.batch_output(batch).delete(' ')).to eq(
-      "| Small         | $3.00           |
-      |---------------------------------|
-      | Small         | $3.00           |
-      |---------------------------------|
-      | Small         | $3.00           |
-      |---------------------------------|
-      ".delete(' ')
+        "| Small         | $3.00           |
+        |---------------------------------|
+        | Small         | $3.00           |
+        |---------------------------------|
+        | Small         | $3.00           |
+        |---------------------------------|
+        ".delete(' ')
+      )
+    end
+  end
+
+  describe '#discount_output' do
+    it 'compiles the cost output of a discount' do
+      parcel = generate_small_parcel
+      batch = generate_batch(parcel, parcel, parcel)
+      compiler = described_class.new
+      expect(compiler.discount_output(batch).delete(' ')).to eq(
+        "| Discount      | -$3.00          |
+        |---------------------------------|
+        ".delete(' ')
       )
     end
   end
@@ -78,9 +91,9 @@ describe Compiler do
       batch = generate_batch(parcel, parcel, parcel)
       compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.speedy_output(batch).delete(' ')).to eq(
-      "| Speedy        | $9.00           |
-      |---------------------------------|
-      ".delete(' ')
+        "| Speedy        | $9.00           |
+        |---------------------------------|
+        ".delete(' ')
       )
     end
   end

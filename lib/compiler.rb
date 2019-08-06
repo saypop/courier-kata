@@ -3,11 +3,10 @@ require_relative 'weigher'
 require_relative 'calculator'
 
 class Compiler
-
   attr_reader :sizer, :calculator
 
   def initialize(sizer: Sizer.new, weigher: Weigher.new,
-    calculator: Calculator.new(sizer: sizer, weigher: weigher))
+                 calculator: Calculator.new(sizer: sizer, weigher: weigher))
     @sizer = sizer
     @calculator = calculator
   end
@@ -22,15 +21,17 @@ class Compiler
   def parcel_output(parcel)
     type = sizer.categorise(parcel)
     type = 'Heavy' if @calculator.weight_cost(parcel) < @calculator.size_cost(parcel)
-    "| #{fix_width(type)}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
-    |---------------------------------|
-    " if parcel
+    if parcel
+      "| #{fix_width(type)}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
+      |---------------------------------|
+      "
+    end
   end
 
   def batch_output(batch)
-    string = ""
+    string = ''
     batch.parcels.each { |parcel| string << parcel_output(parcel) } if batch
-    return string
+    string
   end
 
   def speedy_output(batch)
@@ -39,9 +40,15 @@ class Compiler
     "
   end
 
+  def discount_output(batch)
+    "| Discount      | -$#{fix_width(format('%.2f', calculator.discount(batch)))}|
+    |---------------------------------|
+    "
+  end
+
   def footer(batch, speedy = false)
     total = calculator.batch_cost(batch)
-    speedy ?  total = total * 2 : total = total
+    total = speedy ? total * 2 : total
     "| TOTAL         | $#{fix_width(format('%.2f', total))} |
     |=================================|
     "
@@ -49,8 +56,7 @@ class Compiler
 
   def fix_width(input)
     input = input.to_s
-    input.length <= 13? ((13 - input.length).times { input << " " }) : (input = input[0...13])
-    return input + " "
+    input.length <= 13 ? ((13 - input.length).times { input << ' ' }) : (input = input[0...13])
+    input + ' '
   end
-
 end
