@@ -21,7 +21,7 @@ describe Controller do
     it 'creates a new parcel' do
       parcel = double('parcel', :length => 50, :width => 40, :height => 25)
       parcel_class = double('Parcel', :new => parcel)
-      expect{ controller.new_parcel(50, 40, 25, parcel_class) }.to change{
+      expect{ controller.new_parcel(50, 40, 25, 3, parcel_class) }.to change{
       controller.batch.parcels }.from([]).to([parcel])
     end
 

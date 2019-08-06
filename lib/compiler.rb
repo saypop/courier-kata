@@ -20,7 +20,9 @@ class Compiler
   end
 
   def parcel_output(parcel)
-    "| #{fix_width(sizer.categorise(parcel))}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
+    type = sizer.categorise(parcel)
+    type = 'Heavy' if @calculator.weight_cost(parcel) < @calculator.size_cost(parcel)
+    "| #{fix_width(type)}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
     |---------------------------------|
     " if parcel
   end

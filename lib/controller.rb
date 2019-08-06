@@ -13,8 +13,8 @@ class Controller
     @compiler = compiler
   end
 
-  def new_parcel(length, width, height, parcel_class = Parcel)
-    parcel = parcel_class.new(length, width, height)
+  def new_parcel(length, width, height, weight, parcel_class = Parcel)
+    parcel = parcel_class.new(length, width, height, weight)
     @batch.add(parcel)
   end
 

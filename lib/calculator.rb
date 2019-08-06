@@ -17,7 +17,16 @@ class Calculator
   end
 
   def parcel_cost(parcel)
-    @size_price_map[@sizer.categorise(parcel)] + (2 * @weigher.excess_weight(parcel)) 
+    [weight_cost(parcel), size_cost(parcel)].min
+  end
+
+  def weight_cost(parcel)
+    [0, parcel.weight - 50].max * 1 + 50
+  end
+
+  def size_cost(parcel)
+    type = @sizer.categorise(parcel)
+    @size_price_map[type] + (2 * @weigher.excess_weight(parcel))
   end
 
   def batch_cost(batch)

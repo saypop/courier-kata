@@ -18,7 +18,7 @@ After you have followed the setup instructions, launch the application:
 From there create a new CourierBot instance:
 `$ my_bot = CourierBot.new`
 Then you can add a new parcel to your batch:
-`$ my_bot.new_parcel(length, height, height)  # where the arguments passed are integers`
+`$ my_bot.new_parcel(length, height, length, weight)  # where the dimension arguments passed are integers, the weight arguments can be floats`
 Once you've added a few parcels, you can get your quote:
 `$ my_bot.get_quote(speedy: true)  # for normal delivery`
 or
@@ -73,7 +73,7 @@ So my plan for this was:
 - Construct a new Weigher class which will store the weight limits and input into the calculator class;
 - Write a method that returns the number of kilos a parcel is over limit;
 - Inject a weigher object into my calculator objects;
-- Refactor parcel objects so that they now take an optional weight parameter.
+- Refactor parcel objects so that they now take an optional weight parameter; and
 - Refactor the parcel_cost method to add the additional to overweight parcels.
 
 ### Task 3 Challenges

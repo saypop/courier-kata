@@ -34,8 +34,18 @@ def generate_five_weigher
   weigher
 end
 
+def generate_heavy_weigher
+  weigher = double('weigher')
+  allow(weigher).to receive(:excess_weight).and_return(50)
+  weigher
+end
+
 def generate_small_parcel
   double('Parcel', :length => 9, :width => 8, :height => 7, :weight => 0.5)
+end
+
+def generate_heavy_parcel
+  double('Parcel', :length => 9, :width => 8, :height => 7, :weight => 51)
 end
 
 def generate_medium_parcel
@@ -51,7 +61,14 @@ def generate_xl_parcel
 end
 
 def generate_small_calculator
-  calculator = double('Calculator', :parcel_cost => 3.00, :batch_cost => 9.00)
+  calculator = double('Calculator', :parcel_cost => 3.00, :batch_cost => 9.00,
+    :weight_cost => 50.00, :size_cost => 3.00)
+  calculator
+end
+
+def generate_heavy_calculator
+  calculator = double('Calculator', :parcel_cost => 50.00,
+    :weight_cost => 50.00, :size_cost => 101.00)
   calculator
 end
 

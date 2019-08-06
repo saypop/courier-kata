@@ -36,6 +36,19 @@ describe Compiler do
       ".delete(' ')
       )
     end
+
+    it 'compiles the cost output of a heavy parcel' do
+      sizer = generate_small_sizer
+      weigher = generate_five_weigher
+      parcel = generate_heavy_parcel
+      calculator = generate_heavy_calculator
+      compiler = described_class.new(sizer: sizer, weigher: weigher, calculator: calculator)
+      expect(compiler.parcel_output(parcel).delete(' ')).to eq(
+      "| Heavy         | $50.00          |
+      |---------------------------------|
+      ".delete(' ')
+      )
+    end
   end
 
   describe '#batch_output' do
