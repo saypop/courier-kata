@@ -38,7 +38,7 @@ _I also need something to do the calculations, which gives rise to another class
 
 _At this point I envisaged an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to four more classes._
 4. A Menu class: instances of which contain the instructions for each stage of the user journey and methods that return those steps;
-5. A Receiver class: instances of which receive and share input from the user;
+5. A Validater class: instances of which receive and share input from the user;
 6. A Compiler class: instances of which generate the objects that need to be printed as outputs; and
 7. A Printer class: instances of which prints out instructions from the menu and results from the calculator.
 
