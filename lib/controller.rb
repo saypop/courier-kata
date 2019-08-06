@@ -6,7 +6,6 @@ require_relative 'sizer'
 require_relative 'discounter'
 
 class Controller
-
   attr_reader :batch, :compiler, :discounter
 
   def initialize(batch = Batch.new, compiler = Compiler.new)
@@ -22,9 +21,9 @@ class Controller
   def get_quote(speedy: false)
     compiled_quote = @compiler.header
     compiled_quote += @compiler.batch_output(@batch)
+    compiled_quote += @compiler.discount_output(@batch) if @compiler.calculator.discount(@batch) > 0
     compiled_quote += @compiler.speedy_output(@batch) if speedy
     compiled_quote += @compiler.footer(@batch, speedy)
     puts(compiled_quote)
   end
-
 end

@@ -22,9 +22,9 @@ From there create a new CourierBot instance:
 Then you can add a new parcel to your batch:
 `$ my_bot.new_parcel(length, height, length, weight)  # where the dimension arguments passed are integers, the weight arguments can be floats`
 If you get bored, I wrote a bulk adding script that will add 10, 25, or 50 mixed parcels to the batch:
-
-You can also add multiples of any sized item using the following commands:
-
+`$ my_bot.add_ten`
+`$ my_bot.add_thirty`
+`$ my_bot.add_fifty`
 Once you've added a few parcels, you can get your quote:
 `$ my_bot.get_quote(speedy: true)  # for normal delivery`
 or

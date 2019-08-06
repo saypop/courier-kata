@@ -1,7 +1,7 @@
 require 'weigher'
 
 describe Weigher do
-  let(:weigher) {described_class.new()}
+  let(:weigher) { described_class.new }
 
   describe '#initialize' do
     it 'contains an hash with key (size) value (max weight) pairs' do
@@ -20,5 +20,4 @@ describe Weigher do
       expect(weigher.excess_weight(parcel)).to eq 2
     end
   end
-
 end

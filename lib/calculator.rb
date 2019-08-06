@@ -1,19 +1,22 @@
 require_relative 'sizer'
 require_relative 'weigher'
+require_relative 'discounter'
 
 class Calculator
-
   attr_reader :size_price_map, :sizer
 
-  def initialize(sizer: Sizer.new, weigher: Weigher.new)
+  def initialize(
+    sizer: Sizer.new, weigher: Weigher.new, discounter: Discounter.new
+  )
     @size_price_map = {
-      :Small => 3.00,
-      :Medium => 8.00,
-      :Large => 15.00,
-      :XL => 25.00
+      Small: 3.00,
+      Medium: 8.00,
+      Large: 15.00,
+      XL: 25.00
     }
     @sizer = sizer
     @weigher = weigher
+    @discounter = discounter
   end
 
   def parcel_cost(parcel)
@@ -31,13 +34,17 @@ class Calculator
 
   def get_type(parcel)
     return @sizer.categorise(parcel) if weight_cost(parcel) > size_cost(parcel)
-    return :Heavy
+
+    :Heavy
   end
 
   def batch_cost(batch)
     total = 0.00
     batch.parcels.each { |parcel| total += parcel_cost(parcel) }
-    total
+    total - discount(batch)
   end
 
+  def discount(batch)
+    @discounter.process_discount(batch.parcels, self)
+  end
 end

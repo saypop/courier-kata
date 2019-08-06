@@ -1,5 +1,4 @@
 class Batch
-
   attr_reader :parcels, :discounter
 
   def initialize
@@ -9,5 +8,4 @@ class Batch
   def add(parcel)
     @parcels << parcel
   end
-
 end

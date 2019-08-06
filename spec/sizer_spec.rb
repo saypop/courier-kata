@@ -1,7 +1,7 @@
 require 'sizer'
 
 describe Sizer do
-  let(:sizer) {described_class.new()}
+  let(:sizer) { described_class.new }
 
   describe '#initialize' do
     it 'contains an hash with key (size) value (max dimension) pairs' do
@@ -30,5 +30,4 @@ describe Sizer do
       expect(sizer.categorise(xl_box)).to eq :XL
     end
   end
-
 end
