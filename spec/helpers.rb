@@ -41,3 +41,7 @@ end
 def generate_small_calculator
   double('Calculator', :parcel_cost => 3.00)
 end
+
+def generate_batch(*parcels)
+  double('Batch', :parcels => parcels)
+end

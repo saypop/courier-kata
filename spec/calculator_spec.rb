@@ -50,4 +50,45 @@ describe Calculator do
 
   end
 
+  describe '#batch_cost' do
+    it 'returns the right cost for a batch of 4 small parcels' do
+      small_parcel = double('Parcel')
+      batch = generate_batch(small_parcel, small_parcel, small_parcel, small_parcel)
+      allow(calculator).to receive(:parcel_cost).with(small_parcel).and_return(3.00)
+      expect(calculator.batch_cost(batch)).to eq 12.00
+    end
+
+    it 'returns the right cost for a batch of 4 medium parcels' do
+      medium_parcel = double('Parcel')
+      batch = generate_batch(medium_parcel, medium_parcel, medium_parcel, medium_parcel)
+      allow(calculator).to receive(:parcel_cost).with(medium_parcel).and_return(8.00)
+      expect(calculator.batch_cost(batch)).to eq 32.00
+    end
+
+    it 'returns the right cost for a batch of 4 large parcels' do
+      large_parcel = double('Parcel')
+      batch = generate_batch(large_parcel, large_parcel, large_parcel, large_parcel)
+      allow(calculator).to receive(:parcel_cost).with(large_parcel).and_return(15.00)
+      expect(calculator.batch_cost(batch)).to eq 60.00
+    end
+
+    it 'returns the right cost for a batch of 4 xl parcels' do
+      xl_parcel = double('Parcel')
+      batch = generate_batch(xl_parcel, xl_parcel, xl_parcel, xl_parcel)
+      allow(calculator).to receive(:parcel_cost).with(xl_parcel).and_return(25.00)
+      expect(calculator.batch_cost(batch)).to eq 100.00
+    end
+
+    it 'returns the right cost for a batch of 4 mixed parcels' do
+      small_parcel, medium_parcel = double('Parcel'), double('Parcel')
+      large_parcel, xl_parcel = double('Parcel'),double('Parcel')
+      batch = generate_batch(small_parcel, medium_parcel, large_parcel, xl_parcel)
+      allow(calculator).to receive(:parcel_cost).with(small_parcel).and_return(3.00)
+      allow(calculator).to receive(:parcel_cost).with(medium_parcel).and_return(8.00)
+      allow(calculator).to receive(:parcel_cost).with(large_parcel).and_return(15.00)
+      allow(calculator).to receive(:parcel_cost).with(xl_parcel).and_return(25.00)
+      expect(calculator.batch_cost(batch)).to eq 51.00
+    end
+  end
+
 end
