@@ -9,4 +9,11 @@ describe Weigher do
     end
   end
 
+  describe '#excess_weight' do
+    it 'returns 0 for a parcel that is not overweight' do
+      parcel = generate_small_parcel
+      expect(weigher.excess_weight(parcel)).to eq 0
+    end
+  end
+
 end

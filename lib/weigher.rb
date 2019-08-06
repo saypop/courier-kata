@@ -1,4 +1,4 @@
-class Weigher
+class Weigher < Sizer
 
   attr_reader :weight_limits
 
@@ -11,5 +11,9 @@ class Weigher
     }
   end
 
+  def excess_weight(parcel)
+
+    0
+  end
 
 end

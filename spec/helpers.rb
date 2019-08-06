@@ -23,11 +23,11 @@ def generate_xl_sizer
 end
 
 def generate_small_parcel
-  double('Parcel', :length => 9, :width => 8, :height => 7)
+  double('Parcel', :length => 9, :width => 8, :height => 7, :weight => 0.5)
 end
 
 def generate_medium_parcel
-  double('Parcel', :length => 49, :width => 38, :height => 27)
+  double('Parcel', :length => 49, :width => 38, :height => 27, :weight => 5)
 end
 
 def generate_large_parcel
