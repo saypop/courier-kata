@@ -51,7 +51,7 @@ _While completing this task I found that it would be useful to have another clas
 9. A Sizer class: instances of which will have a method that takes a parcel object and return the appropriate size based on the dimensions of the parcel.
 
 ### Task 1 Challenges
-I took my time with task (it took me about 6 hours in total), mostly because I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
+I took my time with this task (it took me about 6 hours in total), mostly because I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
 I initially wrote 10 classes, 91 tests and 383 lines of code with 100% coverage. I've since refactored this to 7 classes, 41 tests, and 270 lines of code with 100% test coverage.
 So aside from the volume of 'learning' work I did for this task, the toughest part was mocking the calculator and sizer classes when building the compiler.  I came to a good solution but it did take some time. You can see how I solved this by looking at the doubles in the compiler.spec and helper.rb files.
 
@@ -59,6 +59,6 @@ So aside from the volume of 'learning' work I did for this task, the toughest pa
 _The second task is to add in some functionality that allows for the choice of using a 'speedy' service.  Choosing this option will mean an extra line item will be added to the bill which will be for the total amount again._
 To do this I will simply:
 - refactor the get_quote method in the Controller class to take an optional parameter;
-- add in an speedy_output method to the Compiler class which will construct the line item;
+- add in a speedy_output method to the Compiler class which will construct the line item;
 - insert a conditional line of code to the get_quote method that adds the line item in if required; and
 - refactor the footer method in the Compiler class to account for the new total.

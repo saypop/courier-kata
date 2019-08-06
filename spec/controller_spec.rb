@@ -33,9 +33,22 @@ describe Controller do
       controller.batch.parcels }.from([]).to([parcel])
     end
 
-    it 'prints a quote' do
+    it 'prints a quote with normal delivery' do
       allow(STDOUT).to receive(:puts)
+      expect(controller.compiler).to receive(:header).and_return("HEADER")
+      expect(controller.compiler).to receive(:batch_output).and_return("ITEMS")
+      expect(controller.compiler).to receive(:footer).and_return("FOOTER")
       controller.get_quote
+      expect(STDOUT).to have_received(:puts).exactly(1).times
+    end
+
+    it 'prints a quote with normal delivery' do
+      allow(STDOUT).to receive(:puts)
+      expect(controller.compiler).to receive(:header).and_return("HEADER")
+      expect(controller.compiler).to receive(:batch_output).and_return("ITEMS")
+      expect(controller.compiler).to receive(:speedy_output).and_return("SPEEDY")
+      expect(controller.compiler).to receive(:footer).and_return("FOOTER")
+      controller.get_quote(speedy: true)
       expect(STDOUT).to have_received(:puts).exactly(1).times
     end
   end
