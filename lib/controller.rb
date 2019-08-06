@@ -27,8 +27,4 @@ class Controller
     puts(compiled_quote)
   end
 
-  def discounter
-    @discounter = Discounter.new
-  end
-
 end
