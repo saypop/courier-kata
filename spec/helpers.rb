@@ -23,19 +23,19 @@ def generate_xl_sizer
 end
 
 def generate_small_parcel
-  double('Parcel', :name => 'Small Box', :length => 9, :width => 8, :height => 7)
+  double('Parcel', :length => 9, :width => 8, :height => 7)
 end
 
 def generate_medium_parcel
-  double('Parcel', :name => 'Medium Box', :length => 49, :width => 38, :height => 27)
+  double('Parcel', :length => 49, :width => 38, :height => 27)
 end
 
 def generate_large_parcel
-  double('Parcel', :name => 'Large Box', :length => 99, :width => 88, :height => 77)
+  double('Parcel', :length => 99, :width => 88, :height => 77)
 end
 
 def generate_xl_parcel
-  double('Parcel', :name => 'XL Box', :length => 209, :width => 108, :height => 97)
+  double('Parcel', :length => 209, :width => 108, :height => 97)
 end
 
 def generate_small_calculator

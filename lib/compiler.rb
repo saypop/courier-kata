@@ -12,14 +12,14 @@ class Compiler
 
   def header
     "
-    | NAME          | TYPE          | COST            |
-    |-------------------------------------------------|
+    | TYPE          | COST            |
+    |---------------------------------|
     "
   end
 
   def parcel_output(parcel)
-    "| #{fix_width(parcel.name)}| #{fix_width(sizer.categorise(parcel))}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
-    |-------------------------------------------------|
+    "| #{fix_width(sizer.categorise(parcel))}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
+    |---------------------------------|
     " if parcel
   end
 
@@ -30,8 +30,8 @@ class Compiler
   end
 
   def footer(batch)
-    "| TOTAL         |               | $#{fix_width(format('%.2f', calculator.batch_cost(batch)))}|
-    |=================================================|
+    "| TOTAL         | $#{fix_width(format('%.2f', calculator.batch_cost(batch)))} |
+    |=================================|
     "
   end
 

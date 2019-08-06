@@ -1,9 +1,8 @@
 class Batch
 
-  attr_reader :batch_number, :parcels
+  attr_reader :parcels
 
-  def initialize(batch_number)
-    @batch_number = batch_number
+  def initialize
     @parcels = []
   end
 

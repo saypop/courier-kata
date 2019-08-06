@@ -1,13 +1,10 @@
 require 'parcel'
 
 describe Parcel do
-  let(:brown_box) {described_class.new('Brown Box', 40, 20, 25)}
+  let(:brown_box) {described_class.new(40, 20, 25)}
   let(:unknown_box) {described_class.new}
 
   describe '#initialize' do
-    it 'has a name property' do
-      expect(brown_box.name).to eq 'Brown Box'
-    end
 
     it 'has a length property' do
       expect(brown_box.length).to eq 40
@@ -22,7 +19,6 @@ describe Parcel do
     end
 
     it 'has default properties' do
-      expect(unknown_box.name).to eq 'Unnamed Parcel'
       expect(unknown_box.length).to eq 1
       expect(unknown_box.width).to eq 1
       expect(unknown_box.height).to eq 1
@@ -30,9 +26,6 @@ describe Parcel do
   end
 
   describe '#update' do
-    it 'can update the name of a parcel' do
-      expect{ unknown_box.update(name: 'Known Box') }.to change{ unknown_box.name }.to('Known Box')
-    end
 
     it 'can update the length of a parcel' do
       expect{ unknown_box.update(length: 65) }.to change{ unknown_box.length }.to(65)

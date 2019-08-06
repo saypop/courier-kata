@@ -17,8 +17,8 @@ describe Compiler do
     it 'compiles a header for the tables' do
       expect(compiler.header.delete(' ')).to eq(
         "
-        | NAME          | TYPE          | COST            |
-        |-------------------------------------------------|
+        | TYPE          | COST            |
+        |---------------------------------|
         ".delete(' ')
       )
     end
@@ -31,8 +31,8 @@ describe Compiler do
       calculator = generate_small_calculator
       compiler = described_class.new(sizer, calculator)
       expect(compiler.parcel_output(parcel).delete(' ')).to eq(
-      "| Small Box     | Small         | $3.00           |
-      |-------------------------------------------------|
+      "| Small         | $3.00           |
+      |---------------------------------|
       ".delete(' ')
       )
     end
@@ -46,12 +46,12 @@ describe Compiler do
       batch = generate_batch(parcel, parcel, parcel)
       compiler = described_class.new(sizer, calculator)
       expect(compiler.batch_output(batch).delete(' ')).to eq(
-      "| Small Box     | Small         | $3.00           |
-      |-------------------------------------------------|
-      | Small Box     | Small         | $3.00           |
-      |-------------------------------------------------|
-      | Small Box     | Small         | $3.00           |
-      |-------------------------------------------------|
+      "| Small         | $3.00           |
+      |---------------------------------|
+      | Small         | $3.00           |
+      |---------------------------------|
+      | Small         | $3.00           |
+      |---------------------------------|
       ".delete(' ')
       )
     end
@@ -65,8 +65,8 @@ describe Compiler do
       batch = generate_batch(parcel, parcel, parcel)
       compiler = described_class.new(sizer, calculator)
       expect(compiler.footer(batch).delete(' ')).to eq(
-        "| TOTAL         |               | $9.00           |
-       |=================================================|
+        "| TOTAL         | $9.00           |
+       |=================================|
         ".delete(' ')
       )
     end
