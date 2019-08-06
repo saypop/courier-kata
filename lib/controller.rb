@@ -7,7 +7,8 @@ require_relative 'sizer'
 
 class Controller
 
-  attr_reader :calculator, :compiler, :menu, :printer, :receiver, :sizer
+  attr_reader :calculator, :compiler, :menu, :printer, :receiver, :sizer,
+  :batch_number
 
   def initialize(calculator = Calculator.new, compiler = Compiler.new,
     menu = Menu.new, printer = Printer.new, receiver = Receiver.new,
@@ -19,6 +20,10 @@ class Controller
     @receiver = receiver
     @sizer = sizer
     @batch_number = 1
+  end
+
+  def launch
+    @printer.print_output(@menu.options[:welcome_message])
   end
 
 end
