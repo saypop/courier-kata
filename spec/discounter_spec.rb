@@ -46,16 +46,26 @@ describe Discounter do
     end
   end
 
-  describe '#process_medium_discount' do
-    it 'removes 4 items from a medium list and updates discount_amount' do
+  describe '#process_other_discount' do
+    it 'removes all items from lists and updates discount_amount' do
       batch_object = generate_batch_object
       discounter.create_discount_object(batch_object, calculator)
       expect{
         discounter.process_other_discount([], [], discounter.discount_object[:Other])
+      }.to change{ discounter.discount_amount }.to(15.0)
+    end
+  end
+
+  describe '#process_discount' do
+    it 'removes all items from lists and updates discount_amount' do
+      batch_object = generate_batch_object
+      discounter.create_discount_object(batch_object, calculator)
+      expect{
+        discounter.process_discount(batch_object, calculator)
       }.to change{ discounter.discount_object }.to(
         { :Small => [], :Medium => [], :Other => []}
       )
-      expect(discounter.discount_amount).to eq 15.0
+      expect(discounter.discount_amount).to eq 33.0
     end
   end
 
