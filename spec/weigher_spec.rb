@@ -14,6 +14,11 @@ describe Weigher do
       parcel = generate_small_parcel
       expect(weigher.excess_weight(parcel)).to eq 0
     end
+
+    it 'returns 2 for a parcel that is 2kgs overweight' do
+      parcel = generate_medium_parcel
+      expect(weigher.excess_weight(parcel)).to eq 2
+    end
   end
 
 end

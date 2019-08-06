@@ -3,6 +3,7 @@ class Weigher < Sizer
   attr_reader :weight_limits
 
   def initialize()
+    super
     @weight_limits = {
       :XL => 10,
       :Large => 6,
@@ -12,8 +13,8 @@ class Weigher < Sizer
   end
 
   def excess_weight(parcel)
-
-    0
+    excess = [0, (parcel.weight - @weight_limits[categorise(parcel)]).ceil.to_int].max
+    return excess
   end
 
 end
