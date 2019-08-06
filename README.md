@@ -1,7 +1,7 @@
 # courier-kata
 
 ## Introduction
-This is a tech test for FundApps, modeling a courier system in Ruby.  Ruby aside, the only other technology used is the RSpec testing framework.
+This is a tech test for FundApps, modelling a courier system in Ruby.  Ruby aside, the only other technology used is the RSpec testing framework.
 
 Instructions were to approach the project in a step wise manner without looking ahead to following tasks.
 Required output is a collection of items with their individual cost and type, with a total cost.  There is no limitation set on the inputs.
@@ -36,7 +36,7 @@ _I also need something to do the calculations, which gives rise to another class
     - batch_cost: takes a batch and returns the total cost of shipping a batch; and
     - This will also need to contain the size limits and associated cost.
 
-_At this point I envisage an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to four more classes._
+_At this point I envisaged an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to four more classes._
 4. A Menu class: instances of which contain the instructions for each stage of the user journey and methods that return those steps;
 5. A Receiver class: instances of which receive and share input from the user;
 6. A Compiler class: instances of which generate the objects that need to be printed as outputs; and
@@ -45,4 +45,9 @@ _At this point I envisage an interface that gives the user the option to: add ne
 _While completing this task I found that it would be useful to have another class._
 8. A Sizer class: instances of which will have a method that takes a parcel object and return the appropriate size based on the dimensions of the parcel.
 
-_With all that in mind, I started coding for this step at 12:28pm and completed this task at XX:XXpm. Which included about 25 minutes of break time._
+_Then of course I need a class to bring it all together._
+9. A Controller class: instances of which will create all the instances of other classes and make them interact logically.
+
+### Task 1 Challenges
+I took my time with task, I've assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.  I wrote 9 classes, 77 tests and 357 lines of code with 100% coverage.
+So aside from the volume of work I did for this task, the toughest part was mocking the calculator and sizer classes when building the compiler.  I came to a good solution but it did take some time. You can see how I solved this by looking at the doubles in the compiler.spec and helper.rb files.

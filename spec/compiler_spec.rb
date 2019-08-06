@@ -39,7 +39,7 @@ describe Compiler do
   end
 
   describe '#batch_output' do
-    it 'compiles the cost output of a small parcel' do
+    it 'compiles the cost output of a batch of small parcels' do
       sizer = generate_small_sizer
       parcel = generate_small_parcel
       calculator = generate_small_calculator
@@ -53,6 +53,21 @@ describe Compiler do
       | Small Box     | Small         | $3.00           |
       |-------------------------------------------------|
       ".delete(' ')
+      )
+    end
+  end
+
+  describe '#footer' do
+    it 'compiles a footer given a batch of small parcels' do
+      sizer = generate_small_sizer
+      parcel = generate_small_parcel
+      calculator = generate_small_calculator
+      batch = generate_batch(parcel, parcel, parcel)
+      compiler = described_class.new(sizer, calculator)
+      expect(compiler.footer(batch).delete(' ')).to eq(
+        "| TOTAL         |               | $9.00           |
+       |=================================================|
+        ".delete(' ')
       )
     end
   end

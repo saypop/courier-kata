@@ -29,6 +29,12 @@ class Compiler
     return string
   end
 
+  def footer(batch)
+    "| TOTAL         |               | $#{fix_width(format('%.2f', calculator.batch_cost(batch)))}|
+    |=================================================|
+    "
+  end
+
   def fix_width(input)
     input = input.to_s
     input.length <= 13? ((13 - input.length).times { input << " " }) : (input = input[0...13])
