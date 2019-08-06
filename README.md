@@ -1,4 +1,4 @@
-# courier-kata
+# FundApps Tech Test
 
 ## Introduction
 This is a tech test for FundApps, modelling a courier system in Ruby.  Ruby aside, the only other technology used is the RSpec testing framework.
@@ -114,3 +114,21 @@ To break that down into steps, I need to:
 - I'll sort the list of costs for each category and loop through them removing x at a time and tallying the cost of the smallest amount removed;
 - Then I'll return the total amount discounted;
 - I'll also need to compile the line item.
+
+### Task 5 Challenges
+Phew! That was challenging but I like my solution. It wasn't messy like I had thought it could be, I avoided using embedded loops and did things efficiently.
+
+## Notes
+I managed to meet all acceptance criteria but since I was short on time there are definitely a few things I would do to improve this code base.
+
+### UI
+If you look through my commits you'll see that I did a bit of work on this but ended up abandoning it for the sake of time. I'd like to skin this so it can run as an interactive app from the command line.
+
+### Data Structure
+I like the compiler approach, but there were definitely times where I would have liked to have had access to some tables. It definitely would have made my life easier on the final task. If I had time I would connect this to a database so that batches could be saved and accessed using batch numbers.
+
+### Test Isolation
+My mocking and stubbing could have been better.  Towards the end I wrote a few test that don't run in isolation, I would go back and fix these.  That said, the vast majority of my test suite runs in isolation so it would just be a matter of time to get it in better shape.
+
+### Inheritance
+I've used some inheritance here with the sizer and weigher classes.  I think with a bit more thought I could extract some more child classes out of the super classes I've created.  In particular I think the discounter class could make a good sub class of the batch class since they both have object attributes.
