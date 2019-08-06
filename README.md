@@ -39,7 +39,7 @@ If you get bored, I wrote a bulk adding script that will add 10, 25, or 50 mixed
 
 Once you've added a few parcels, you can get your quote:
 
-`$ my_bot.get_quote(speedy: true)  # for normal delivery`
+`$ my_bot.get_quote(speedy: false)  # for normal delivery`
 
 or
 
