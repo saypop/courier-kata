@@ -35,5 +35,19 @@ describe Controller do
     end
   end
 
+  describe '#launch' do
+    let(:calculator) {double('calculator')}
+    let(:compiler) {double('compiler')}
+    let(:menu) {double('menu')}
+    let(:printer) {double('printer')}
+    let(:receiver) {double('receiver')}
+    let(:sizer) {double('sizer')}
+    let(:mock_controller) {described_class.new(calculator, compiler, menu, printer, receiver, sizer)}
 
+    it 'prints the welcome_message' do
+      allow(menu).to receive(:options).and_return({ :welcome_message => "Test" })
+      expect(printer).to receive(:print_output).with("Test").exactly(1).times
+      mock_controller.launch
+    end
+  end
 end
