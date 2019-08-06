@@ -29,7 +29,7 @@ describe Compiler do
       sizer = generate_small_sizer
       parcel = generate_small_parcel
       calculator = generate_small_calculator
-      compiler = described_class.new(sizer, calculator)
+      compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.parcel_output(parcel).delete(' ')).to eq(
       "| Small         | $3.00           |
       |---------------------------------|
@@ -44,7 +44,7 @@ describe Compiler do
       parcel = generate_small_parcel
       calculator = generate_small_calculator
       batch = generate_batch(parcel, parcel, parcel)
-      compiler = described_class.new(sizer, calculator)
+      compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.batch_output(batch).delete(' ')).to eq(
       "| Small         | $3.00           |
       |---------------------------------|
@@ -63,7 +63,7 @@ describe Compiler do
       parcel = generate_small_parcel
       calculator = generate_small_calculator
       batch = generate_batch(parcel, parcel, parcel)
-      compiler = described_class.new(sizer, calculator)
+      compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.speedy_output(batch).delete(' ')).to eq(
       "| Speedy        | $9.00           |
       |---------------------------------|
@@ -78,7 +78,7 @@ describe Compiler do
       parcel = generate_small_parcel
       calculator = generate_small_calculator
       batch = generate_batch(parcel, parcel, parcel)
-      compiler = described_class.new(sizer, calculator)
+      compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.footer(batch).delete(' ')).to eq(
         "| TOTAL         | $9.00           |
        |=================================|
@@ -91,7 +91,7 @@ describe Compiler do
       parcel = generate_small_parcel
       calculator = generate_small_calculator
       batch = generate_batch(parcel, parcel, parcel)
-      compiler = described_class.new(sizer, calculator)
+      compiler = described_class.new(sizer: sizer, calculator: calculator)
       expect(compiler.footer(batch, true).delete(' ')).to eq(
         "| TOTAL         | $18.00          |
        |=================================|

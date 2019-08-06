@@ -1,10 +1,11 @@
 require_relative 'sizer'
+require_relative 'weigher'
 
 class Calculator
 
   attr_reader :size_price_map, :sizer
 
-  def initialize(sizer = Sizer.new)
+  def initialize(sizer: Sizer.new, weigher: Weigher.new)
     @size_price_map = {
       :Small => 3.00,
       :Medium => 8.00,

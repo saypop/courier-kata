@@ -1,11 +1,13 @@
 require_relative 'sizer'
+require_relative 'weigher'
 require_relative 'calculator'
 
 class Compiler
 
   attr_reader :sizer, :calculator
 
-  def initialize(sizer = Sizer.new, calculator = Calculator.new(sizer))
+  def initialize(sizer: Sizer.new, weigher: Weigher.new,
+    calculator: Calculator.new(sizer: sizer, weigher: weigher))
     @sizer = sizer
     @calculator = calculator
   end
