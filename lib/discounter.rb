@@ -42,6 +42,15 @@ class Discounter
     @discount_object[:Medium] = parcels
   end
 
+  def process_other_discount(small_list, medium_list, other_list)
+    parcels = (small_list + medium_list + other_list).sort
+    until parcels.length < 5
+       @discount_amount = @discount_amount + parcels[0]
+       parcels.slice!(0, 5)
+    end
+    @discount_object = { :Small => [], :Medium => [], :Other => []}
+  end
+
 
 
 
