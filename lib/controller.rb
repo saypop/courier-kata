@@ -6,14 +6,11 @@ require_relative 'sizer'
 
 class Controller
 
-  attr_reader :batch, :calculator, :compiler, :sizer
+  attr_reader :batch, :compiler
 
-  def initialize(batch = Batch.new, compiler = Compiler.new(sizer = Sizer.new,
-    calculator = Calculator.new))
+  def initialize(batch = Batch.new, compiler = Compiler.new)
     @batch = batch
-    @calculator = calculator
     @compiler = compiler
-    @sizer = sizer
   end
 
   def new_parcel(length, width, height, parcel_class = Parcel)
@@ -22,7 +19,6 @@ class Controller
   end
 
   def get_quote(speedy: false)
-
     compiled_quote = @compiler.header
     compiled_quote += @compiler.batch_output(@batch)
     compiled_quote += @compiler.speedy_output(@batch) if speedy

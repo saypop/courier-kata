@@ -10,16 +10,8 @@ describe Controller do
       expect(controller.batch).to be_an_instance_of(Batch)
     end
 
-    it 'has a calculator from the Calculator class' do
-      expect(controller.calculator).to be_an_instance_of(Calculator)
-    end
-
     it 'has a compiler from the Compiler class' do
       expect(controller.compiler).to be_an_instance_of(Compiler)
-    end
-
-    it 'has a sizer from the Sizer class' do
-      expect(controller.sizer).to be_an_instance_of(Sizer)
     end
 
   end

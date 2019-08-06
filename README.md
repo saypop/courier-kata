@@ -57,8 +57,20 @@ So aside from the volume of 'learning' work I did for this task, the toughest pa
 
 ### Task 2
 _The second task is to add in some functionality that allows for the choice of using a 'speedy' service.  Choosing this option will mean an extra line item will be added to the bill which will be for the total amount again._
-To do this I will simply:
-- refactor the get_quote method in the Controller class to take an optional parameter;
-- add in a speedy_output method to the Compiler class which will construct the line item;
-- insert a conditional line of code to the get_quote method that adds the line item in if required; and
-- refactor the footer method in the Compiler class to account for the new total.
+To do this I simply:
+- refactored the get_quote method in the Controller class to take an optional parameter;
+- added in a speedy_output method to the Compiler class which will construct the line item;
+- inserted a conditional line of code to the get_quote method that adds the line item in if required; and
+- refactored the footer method in the Compiler class to account for the new total.
+
+### Task 2 Challenges
+None at all, turned this around in a matter of minutes.  Working with well tested clear code is fun.
+
+### Task 3
+_The third task was to add in functionality for an overweight charge on parcel.  Each parcel type has it's own weight limit, all packages are charged the same per kilo if they are over limit._
+A little trickier. I needed to add in a new hash that maps to the weight limits, I had to make a call on whether I add the weight limits to my existing Sizer class or if I create a new class for this.  I favour classes with a single purpose so I decided on a new class: Weigher.
+So my plan for this was:
+- Construct a new Weigher class which will store the weight limits and input into the calculator class;
+- Write a method that returns the number of kilos a parcel is over limit;
+- Inject a weigher object into my calculator objects;
+- Refactor the parcel_cost method to add the additional to overweight parcels. 
