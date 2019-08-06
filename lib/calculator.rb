@@ -29,6 +29,11 @@ class Calculator
     @size_price_map[type] + (2 * @weigher.excess_weight(parcel))
   end
 
+  def get_type(parcel)
+    return @sizer.categorise(parcel) if weight_cost(parcel) > size_cost(parcel)
+    return :Heavy
+  end
+
   def batch_cost(batch)
     total = 0.00
     batch.parcels.each { |parcel| total += parcel_cost(parcel) }

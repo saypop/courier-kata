@@ -3,10 +3,11 @@ require_relative 'calculator'
 require_relative 'compiler'
 require_relative 'parcel'
 require_relative 'sizer'
+require_relative 'discounter'
 
 class Controller
 
-  attr_reader :batch, :compiler
+  attr_reader :batch, :compiler, :discounter
 
   def initialize(batch = Batch.new, compiler = Compiler.new)
     @batch = batch
@@ -24,6 +25,10 @@ class Controller
     compiled_quote += @compiler.speedy_output(@batch) if speedy
     compiled_quote += @compiler.footer(@batch, speedy)
     puts(compiled_quote)
+  end
+
+  def discounter
+    @discounter = Discounter.new
   end
 
 end

@@ -8,10 +8,12 @@ Required output is a collection of items with their individual cost and type, wi
 Total time given is 2 hours, I will be aiming to complete all tasks and will make a note of where I get to at the 2 hour mark.
 
 ## Quickstart
+
 _Getting setup_
 Ensure that you have Ruby and Bundler installed.  Then, clone this repo and install the dependencies:
 `$ bundle install`
 Ensure that you are running Ruby 2.5.0 (you can use RVM to manage Ruby versions)
+
 _Running the application_
 After you have followed the setup instructions, launch the application:
 `$ irb`
@@ -19,10 +21,15 @@ From there create a new CourierBot instance:
 `$ my_bot = CourierBot.new`
 Then you can add a new parcel to your batch:
 `$ my_bot.new_parcel(length, height, length, weight)  # where the dimension arguments passed are integers, the weight arguments can be floats`
+If you get bored, I wrote a bulk adding script that will add 10, 25, or 50 mixed parcels to the batch:
+
+You can also add multiples of any sized item using the following commands:
+
 Once you've added a few parcels, you can get your quote:
 `$ my_bot.get_quote(speedy: true)  # for normal delivery`
 or
 `$ my_bot.get_quote(speedy: true)  # for speedy delivery`
+
 _Running the tests_
 After you have followed the setup instructions, run the tests with RSpec:
 `$ rspec                    ## runs the entire test suite`
@@ -51,7 +58,7 @@ _While completing this task I found that it would be useful to have another clas
 9. A Sizer class: instances of which will have a method that takes a parcel object and return the appropriate size based on the dimensions of the parcel.
 
 ### Task 1 Challenges
-I took my time with this task (it took me about 6 hours in total), mostly because I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
+I took my time with this task (it took me about 4 hours in total), mostly because I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
 I initially wrote 10 classes, 91 tests and 383 lines of code with 100% coverage. I've since refactored this to 7 classes, 41 tests, and 270 lines of code with 100% test coverage.
 So aside from the volume of 'learning' work I did for this task, the toughest part was mocking the calculator and sizer classes when building the compiler.  I came to a good solution but it did take some time. You can see how I solved this by looking at the doubles in the compiler.spec and helper.rb files.
 
@@ -77,4 +84,33 @@ So my plan for this was:
 - Refactor the parcel_cost method to add the additional to overweight parcels.
 
 ### Task 3 Challenges
-I elected to create a new weigher class, after a while I realised that I needed a lot of the info and functions is the sizer class to be available in the weigher class.  So I made Weigher a sub class of Sizer.
+I elected to create a new weigher class, after a while I realised that I needed a lot of the info and functions is the sizer class to be available in the weigher class.  Injecting the sizer class into the weigher class didn't make much sense to me, so I made Weigher a sub class of Sizer.
+All in all this took me about 30 minutes.
+
+### Task 4
+_The fourth task is to add another parcel type called Heavy.  The type is loosely defined as a parcel under 50kgs, charged $50 with an additional $1 for every additional kg_
+I assumed that the type that results in a minimum charge should always be used.
+At first this looked difficult because the type based on weight is incongruent with the types based on size.  After a bit of thought it seems pretty straight forward though.
+The solution is to just:
+- refactor parcel_cost to use two new methods: weight_cost and size_cost;
+- add some simple logic to the calculator method parcel_cost in order to use the minimum cost;
+- update the compiler method parcel output to use the type that results in minimum cost.
+
+### Task 4 Challenges
+That was fairly straightforward.  I had to update my mocks to account for allow for the new methods but my existing tests are unchanged.
+This took about 40 minutes of coding, I ran into a bug that had me stumped but revealed an issue with my mocks that I'm glad I got to fix.
+
+### Task 5
+_The final challenge is to implement a discounting system that rewards people for shipping more parcels._
+There is some very specific logic: 3 types of discounts small, medium and mixed.  This could result in a pretty messy embedded loop method so I took some time to model it out first.
+Because I am using a compiler I don't have the benefit of having an object that stores the types and cost of all the parcels in a batch.
+What I do have is the batch object and a bunch of methods I have used to assign cost and type in the compiler.
+Since I'm going to be so reliant on the attribute of the batch object, and I don't want to change it, I will create a new class that copies the list in batch so I can mutate it in there so I don't effect any of the functionality already in place.
+To copy the array without risking mutation I'll make a deep copy using the Marshal library in Ruby.
+Then I'll mutate the deep copy so that it contains hash objects for each parcel which will store data like type, cost, and discount bucket.  This will help in sorting the parcels and making sure I don't use the same one twice.
+To break that down into steps, I need to:
+- Create a new class called Discounter;
+- By looping through the batch list and using existing method, I'll create a hash that list all the cost entries for 'small', 'medium', and 'other' parcels;
+- I'll sort the list of costs for each category and loop through them removing x at a time and tallying the cost of the smallest amount removed;
+- Then I'll return the total amount discounted;
+- I'll also need to compile the line item.

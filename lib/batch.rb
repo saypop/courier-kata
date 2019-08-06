@@ -1,6 +1,6 @@
 class Batch
 
-  attr_reader :parcels
+  attr_reader :parcels, :discounter
 
   def initialize
     @parcels = []

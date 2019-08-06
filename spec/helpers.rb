@@ -52,12 +52,16 @@ def generate_medium_parcel
   double('Parcel', :length => 49, :width => 38, :height => 27, :weight => 5)
 end
 
+def generate_very_heavy_parcel
+  double('Parcel', :length => 49, :width => 38, :height => 27, :weight => 201)
+end
+
 def generate_large_parcel
-  double('Parcel', :length => 99, :width => 88, :height => 77)
+  double('Parcel', :length => 99, :width => 88, :height => 77, :weight => 5)
 end
 
 def generate_xl_parcel
-  double('Parcel', :length => 209, :width => 108, :height => 97)
+  double('Parcel', :length => 209, :width => 108, :height => 97, :weight => 5)
 end
 
 def generate_small_calculator
@@ -74,4 +78,15 @@ end
 
 def generate_batch(*parcels)
   double('Batch', :parcels => parcels)
+end
+
+def generate_batch_object
+  batch_object = []
+  2.times{batch_object << generate_heavy_parcel}
+  5.times{batch_object << generate_small_parcel}
+  7.times{batch_object << generate_medium_parcel}
+  5.times{batch_object << generate_large_parcel}
+  # 5.times{batch_object << generate_xl_parcel}
+  # 3.times{batch_object << generate_very_heavy_parcel}
+  batch_object
 end
