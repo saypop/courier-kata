@@ -1,7 +1,7 @@
 require 'parcel'
 
 describe Parcel do
-  let(:brown_box) {described_class.new(40, 20, 25)}
+  let(:brown_box) {described_class.new(40, 20, 25, 4)}
   let(:unknown_box) {described_class.new}
 
   describe '#initialize' do
@@ -18,10 +18,15 @@ describe Parcel do
       expect(brown_box.height).to eq 25
     end
 
+    it 'has a weight property' do
+      expect(brown_box.weight).to eq 4
+    end
+
     it 'has default properties' do
       expect(unknown_box.length).to eq 1
       expect(unknown_box.width).to eq 1
       expect(unknown_box.height).to eq 1
+      expect(unknown_box.weight).to eq 1
     end
   end
 

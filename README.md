@@ -73,4 +73,8 @@ So my plan for this was:
 - Construct a new Weigher class which will store the weight limits and input into the calculator class;
 - Write a method that returns the number of kilos a parcel is over limit;
 - Inject a weigher object into my calculator objects;
-- Refactor the parcel_cost method to add the additional to overweight parcels. 
+- Refactor parcel objects so that they now take an optional weight parameter.
+- Refactor the parcel_cost method to add the additional to overweight parcels.
+
+### Task 3 Challenges
+I elected to create a new weigher class, after a while I realised that I needed a lot of the info and functions is the sizer class to be available in the weigher class.  So I made Weigher a sub class of Sizer.
