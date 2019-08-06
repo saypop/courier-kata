@@ -57,8 +57,23 @@ describe Compiler do
     end
   end
 
+  describe '#speedy_output' do
+    it 'compiles the cost output of a speedy delivery' do
+      sizer = generate_small_sizer
+      parcel = generate_small_parcel
+      calculator = generate_small_calculator
+      batch = generate_batch(parcel, parcel, parcel)
+      compiler = described_class.new(sizer, calculator)
+      expect(compiler.speedy_output(batch).delete(' ')).to eq(
+      "| Speedy        | $9.00           |
+      |---------------------------------|
+      ".delete(' ')
+      )
+    end
+  end
+
   describe '#footer' do
-    it 'compiles a footer given a batch of small parcels' do
+    it 'compiles a footer given a batch of small parcels with normal delivery' do
       sizer = generate_small_sizer
       parcel = generate_small_parcel
       calculator = generate_small_calculator

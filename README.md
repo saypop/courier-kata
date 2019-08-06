@@ -14,8 +14,15 @@ Ensure that you have Ruby and Bundler installed.  Then, clone this repo and inst
 Ensure that you are running Ruby 2.5.0 (you can use RVM to manage Ruby versions)
 _Running the application_
 After you have followed the setup instructions, launch the application:
-`$ ruby main.rb`
-From there follow the instructions printed to your terminal.
+`$ irb`
+From there create a new CourierBot instance:
+`$ my_bot = CourierBot.new`
+Then you can add a new parcel to your batch:
+`$ my_bot.new_parcel(length, height, height)  # where the arguments passed are integers`
+Once you've added a few parcels, you can get your quote:
+`$ my_bot.get_quote(speedy: true)  # for normal delivery`
+or
+`$ my_bot.get_quote(speedy: true)  # for speedy delivery`
 _Running the tests_
 After you have followed the setup instructions, run the tests with RSpec:
 `$ rspec                    ## runs the entire test suite`
@@ -36,19 +43,22 @@ _I also need something to do the calculations, which gives rise to another class
     - batch_cost: takes a batch and returns the total cost of shipping a batch; and
     - This will also need to contain the size limits and associated cost.
 
-_At this point I envisaged an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to four more classes._
-4. A Menu class: instances of which contain the instructions for each stage of the user journey and methods that return those steps;
-5. A Validater class: instances of which validate input from the user;
+_At this point I envisaged an interface that gives the user the option to: add new parcels to a batch or return the cost output of the batch. Which gives rise to two more classes._
 6. A Compiler class: instances of which generate the objects that need to be printed as outputs; and
-7. A Printer class: instances of which prints out instructions from the menu and results from the calculator.
-8. A Receiver class: which gets inputs from the user.
+7. A Controller class: instances of which will create all the instances of other classes and make them interact logically.
 
 _While completing this task I found that it would be useful to have another class._
 9. A Sizer class: instances of which will have a method that takes a parcel object and return the appropriate size based on the dimensions of the parcel.
 
-_Then of course I need a class to bring it all together._
-10. A Controller class: instances of which will create all the instances of other classes and make them interact logically.
-
 ### Task 1 Challenges
-I took my time with task (it took me about 6 hours in total), I've assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.  I wrote 9 classes, 77 tests and 357 lines of code with 100% coverage.
-So aside from the volume of work I did for this task, the toughest part was mocking the calculator and sizer classes when building the compiler.  I came to a good solution but it did take some time. You can see how I solved this by looking at the doubles in the compiler.spec and helper.rb files.
+I took my time with task (it took me about 6 hours in total), mostly because I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
+I initially wrote 10 classes, 91 tests and 383 lines of code with 100% coverage. I've since refactored this to 7 classes, 41 tests, and 270 lines of code with 100% test coverage.
+So aside from the volume of 'learning' work I did for this task, the toughest part was mocking the calculator and sizer classes when building the compiler.  I came to a good solution but it did take some time. You can see how I solved this by looking at the doubles in the compiler.spec and helper.rb files.
+
+### Task 2
+_The second task is to add in some functionality that allows for the choice of using a 'speedy' service.  Choosing this option will mean an extra line item will be added to the bill which will be for the total amount again._
+To do this I will simply:
+- refactor the get_quote method in the Controller class to take an optional parameter;
+- add in an speedy_output method to the Compiler class which will construct the line item;
+- insert a conditional line of code to the get_quote method that adds the line item in if required; and
+- refactor the footer method in the Compiler class to account for the new total.

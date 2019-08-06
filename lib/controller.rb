@@ -21,7 +21,7 @@ class Controller
     @batch.add(parcel)
   end
 
-  def get_quote
+  def get_quote(speedy: false)
     compiled_quote = @compiler.header
     compiled_quote += @compiler.batch_output(@batch)
     compiled_quote += @compiler.footer(@batch)

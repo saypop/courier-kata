@@ -29,6 +29,12 @@ class Compiler
     return string
   end
 
+  def speedy_output(batch)
+    "| Speedy        | $#{fix_width(format('%.2f', calculator.batch_cost(batch)))} |
+    |---------------------------------|
+    "
+  end
+
   def footer(batch)
     "| TOTAL         | $#{fix_width(format('%.2f', calculator.batch_cost(batch)))} |
     |=================================|
