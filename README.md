@@ -32,7 +32,9 @@ Then you can add a new parcel to your batch:
 If you get bored, I wrote a bulk adding script that will add 10, 25, or 50 mixed parcels to the batch:
 
 `$ my_bot.add_ten`
+
 `$ my_bot.add_thirty`
+
 `$ my_bot.add_fifty`
 
 Once you've added a few parcels, you can get your quote:
@@ -49,7 +51,9 @@ _Running the tests_
 After you have followed the setup instructions, run the tests with RSpec:
 
 `$ rspec                    ## runs the entire test suite`
+
 `$ rspec spec/file.rb       ## runs a specific test file`
+
 `$ rspec -e 'Test name'     ## runs a specific test`
 
 ## Approach
