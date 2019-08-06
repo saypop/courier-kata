@@ -6,20 +6,20 @@ describe Validater do
   describe '#initialize' do
     it 'contains a list of acceptable pre menu inputs' do
       expect(validater.pre_menu_options).to eq({
-        'exit' => :exit, 'start' => :start, 'back' => :exit
+        'end' => :exit, 'start' => :start, 'back' => :exit
         })
     end
 
     it 'contains a list of acceptable main menu options' do
       expect(validater.main_menu_options).to eq({
-        1 => :one, 2 => :two, 3 => :three, 4 => :four,
-        5 => :five, 0 => :exit, 'exit' => :exit, 'back' => :exit
+        '1' => :one, '2' => :two, '3' => :three, '4' => :four,
+        '5' => :five, '0' => :exit, 'end' => :exit, 'back' => :exit
       })
     end
 
     it 'contains a list of acceptable yes/no menu options' do
       expect(validater.yes_no_options).to eq({
-        'yes' => :yes, 'no' => :no, 'back' => :back, 'exit' => :exit
+        'yes' => :yes, 'no' => :no, 'back' => :back, 'end' => :exit
       })
     end
   end
@@ -30,7 +30,7 @@ describe Validater do
     end
 
     it 'returns :exit when given exit as an argument' do
-      expect(validater.pre_menu_choice('exit')).to eq :exit
+      expect(validater.pre_menu_choice('end')).to eq :exit
     end
 
     it 'returns :start when given start as an argument' do
@@ -48,31 +48,31 @@ describe Validater do
     end
 
     it 'returns :one when given 1 as an option' do
-      expect(validater.main_menu_choice(1)).to eq :one
+      expect(validater.main_menu_choice('1')).to eq :one
     end
 
     it 'returns :two when given 2 as an option' do
-      expect(validater.main_menu_choice(2)).to eq :two
+      expect(validater.main_menu_choice('2')).to eq :two
     end
 
     it 'returns :three when given 3 as an option' do
-      expect(validater.main_menu_choice(3)).to eq :three
+      expect(validater.main_menu_choice('3')).to eq :three
     end
 
     it 'returns :four when given 4 as an option' do
-      expect(validater.main_menu_choice(4)).to eq :four
+      expect(validater.main_menu_choice('4')).to eq :four
     end
 
     it 'returns :five when given 5 as an option' do
-      expect(validater.main_menu_choice(5)).to eq :five
+      expect(validater.main_menu_choice('5')).to eq :five
     end
 
     it 'returns :exit when given 0 as an option' do
-      expect(validater.main_menu_choice(0)).to eq :exit
+      expect(validater.main_menu_choice('0')).to eq :exit
     end
 
     it 'returns :exit when given exit as an option' do
-      expect(validater.main_menu_choice('exit')).to eq :exit
+      expect(validater.main_menu_choice('end')).to eq :exit
     end
 
     it 'returns :exit when given back as an option' do
@@ -99,7 +99,7 @@ describe Validater do
     end
 
     it 'returns :exit when given exit as an option' do
-      expect(validater.yes_no_choice('exit')).to eq :exit
+      expect(validater.yes_no_choice('end')).to eq :exit
     end
   end
 
@@ -110,6 +110,16 @@ describe Validater do
 
     it 'returns the output when the output is not nil' do
       expect(validater.validate_output('not nil')).to eq 'not nil'
+    end
+  end
+
+  describe '#validate_integer' do
+    it 'returns invalid when the output is not a number' do
+      expect(validater.validate_integer('foo')).to eq :invalid
+    end
+
+    it 'returns an integer when the input is an integer' do
+      expect(validater.validate_integer('4')).to eq 4
     end
   end
 

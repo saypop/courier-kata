@@ -10,7 +10,7 @@ class Menu
       I'll provide you with numbered options as we go along but you can talk to me in English too.
       Whenever I give you numbered options just type in the number and press enter.
       If you want to give me instructions in English just type the instruction without quotation marks and press enter.
-      If you'd like to turn me off at anytime just type and enter: 'exit'.
+      If you'd like to turn me off at anytime just type and enter: 'end'.
       If you'd like to stop what I'm doing and go back at anytime just type and enter: 'back'.
       To get started please type and enter: 'start'",
       :get_started => "Let's get started!",
@@ -22,7 +22,8 @@ class Menu
       5: Start a new batch.
       0: Shut me down :( You will lose your progress if you do this.",
       :add_parcel => "Adding parcels to batches is what I love to do.",
-      :request_length => "Can I get the length of the parcel (in cm)? ", # some repitition here
+      :request_name => "Can I get a name for this parcel? This is optional but will make it easier when looking at your batch. ",
+      :request_length => "Can I get the length of the parcel (in cm)? ",
       :request_width => "Can I get the width of the parcel (in cm)? ",
       :request_height => "Can I get the height of the parcel (in cm)? ",
       :parcel_added => "Good news! I've successfully added that parcel to your batch.",

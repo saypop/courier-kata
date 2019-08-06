@@ -18,7 +18,7 @@ class Compiler
   end
 
   def parcel_output(parcel)
-    "| #{fix_width(parcel.name)}| #{fix_width(sizer.categorise(parcel))}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))}|
+    "| #{fix_width(parcel.name)}| #{fix_width(sizer.categorise(parcel))}| $#{fix_width(format('%.2f', calculator.parcel_cost(parcel)))} |
     |-------------------------------------------------|
     " if parcel
   end

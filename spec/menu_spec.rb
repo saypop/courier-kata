@@ -18,7 +18,7 @@ describe Menu do
         I'll provide you with numbered options as we go along but you can talk to me in English too.
         Whenever I give you numbered options just type in the number and press enter.
         If you want to give me instructions in English just type the instruction without quotation marks and press enter.
-        If you'd like to turn me off at anytime just type and enter: 'exit'.
+        If you'd like to turn me off at anytime just type and enter: 'end'.
         If you'd like to stop what I'm doing and go back at anytime just type and enter: 'back'.
         To get started please type and enter: 'start'".delete(' ')
       )
