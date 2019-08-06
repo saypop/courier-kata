@@ -35,8 +35,10 @@ class Compiler
     "
   end
 
-  def footer(batch)
-    "| TOTAL         | $#{fix_width(format('%.2f', calculator.batch_cost(batch)))} |
+  def footer(batch, speedy = false)
+    total = calculator.batch_cost(batch)
+    speedy ?  total = total * 2 : total = total
+    "| TOTAL         | $#{fix_width(format('%.2f', total))} |
     |=================================|
     "
   end

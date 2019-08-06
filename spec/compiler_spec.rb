@@ -85,6 +85,19 @@ describe Compiler do
         ".delete(' ')
       )
     end
+
+    it 'compiles a footer given a batch of small parcels with speedy delivery' do
+      sizer = generate_small_sizer
+      parcel = generate_small_parcel
+      calculator = generate_small_calculator
+      batch = generate_batch(parcel, parcel, parcel)
+      compiler = described_class.new(sizer, calculator)
+      expect(compiler.footer(batch, true).delete(' ')).to eq(
+        "| TOTAL         | $18.00          |
+       |=================================|
+        ".delete(' ')
+      )
+    end
   end
 
   describe '#fix_width' do
