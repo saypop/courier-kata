@@ -86,7 +86,7 @@ _While completing this task I found that it would be useful to have another clas
 
 ### Task 1 Challenges
 
-I took my time with this task (it took me about 4 hours in total), mostly because I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
+I took my time with this task (excluding the time I spent thinking it through and planning, it took me about 2 hours of coding in total), I had made it more difficult by adding in unnecessary features. I've also assumed that I will need to make changes to my code base in later challenges so I wrote SOLID code to make that process as easy as possible.
 I initially wrote 10 classes, 91 tests and 383 lines of code with 100% coverage. I've since refactored this to 7 classes, 41 tests, and 270 lines of code with 100% test coverage.
 So aside from the volume of 'learning' work I did for this task, the toughest part was mocking the calculator and sizer classes when building the compiler.  I came to a good solution but it did take some time. You can see how I solved this by looking at the doubles in the compiler.spec and helper.rb files.
 
@@ -165,7 +165,7 @@ To break that down into steps, I need to:
 
 ### Task 5 Challenges
 
-Phew! That was challenging but I like my solution. It wasn't messy like I had thought it could be, I avoided using embedded loops and did things efficiently.  The new class makes a lot of sense to me, it has a few methods that could be merged but ultimately it does a single thing and returns a single variable.
+Phew! That was challenging but I like my solution, it took another 40 minutes of coding to complete. It wasn't messy like I had thought it could be, I avoided using embedded loops and did things efficiently.  The new class makes a lot of sense to me, it has a few methods that could be merged but ultimately it does a single thing and returns a single variable.
 
 ## Notes
 
