@@ -17,7 +17,7 @@ Ensure that you are running Ruby 2.5.0 (you can use RVM to manage Ruby versions)
 
 _Running the application_
 
-After you have followed the setup instructions, launch the application:
+After you have followed the setup instructions, launch the REPL:
 
 `$ irb`
 
