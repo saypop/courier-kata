@@ -165,9 +165,20 @@ To break that down into steps, I need to:
 
 ### Task 5 Challenges
 
-Phew! That was challenging but I like my solution. It wasn't messy like I had thought it could be, I avoided using embedded loops and did things efficiently.
+Phew! That was challenging but I like my solution. It wasn't messy like I had thought it could be, I avoided using embedded loops and did things efficiently.  The new class makes a lot of sense to me, it has a few methods that could be merged but ultimately it does a single thing and returns a single variable.
 
 ## Notes
+
+There are few things I'm really happy with:
+
+### Test Coverage
+I wrote over 100 tests for this kata, after refactoring there are 52 remaining.  I'm really pleased with that, there are more tests than methods and every aspect of the app is tested.  This meant that making changes later in the app was really straightforward, even though it took longer to get off the ground.
+
+### Architecture
+I'm really happy with the way everything fits together in this app, there is definitely room for improvement but I like that functionality is compartmentalised and that it is easy to know which part is doing what... it makes debugging a simple process.
+
+### Semanitcs
+Classes and method are named clearly and logically.  This simplifies the process of updating the code base. 
 
 I managed to meet all acceptance criteria but since I was short on time there are definitely a few things I would do to improve this code base.
 
