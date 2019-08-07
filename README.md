@@ -20,7 +20,8 @@ _Running the application_
 After you have followed the setup instructions, launch the REPL:
 
 `$ irb`
-`$ require './app.rb'
+
+`$ require './app.rb`
 
 From there create a new CourierBot instance:
 
