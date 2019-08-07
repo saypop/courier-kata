@@ -182,3 +182,6 @@ My mocking and stubbing could have been better.  Towards the end I wrote a few t
 
 ### Inheritance
 I've used some inheritance here with the sizer and weigher classes.  I think with a bit more thought I could extract some more child classes out of the super classes I've created.  In particular I think the discounter class could make a good sub class of the batch class since they both have object attributes.
+
+### Refactoring and Extraction
+It's pretty clear to see that the dicounter and calculator classes are longer than the rest.  If I were to put more time into this I'd extract a class out of calculator and reduce the repetition in discounter by making a single method that loops through any discount bucket based on the arguments provided.
