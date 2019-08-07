@@ -172,7 +172,7 @@ Phew! That was challenging but I like my solution. It wasn't messy like I had th
 There are few things I'm really happy with:
 
 ### Test Coverage
-I wrote over 100 tests for this kata, after refactoring there are 52 remaining.  I'm really pleased with that, there are more tests than methods and every aspect of the app is tested.  This meant that making changes later in the app was really straightforward, even though it took longer to get off the ground.
+100% :) I wrote over 100 tests for this kata, after refactoring there are 52 remaining.  I'm really pleased with that, there are more tests than methods and every aspect of the app is tested.  This meant that making changes later in the app was really straightforward, even though it took longer to get off the ground.
 
 ### Architecture
 I'm really happy with the way everything fits together in this app, there is definitely room for improvement but I like that functionality is compartmentalised and that it is easy to know which part is doing what... it makes debugging a simple process.
