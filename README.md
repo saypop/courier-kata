@@ -1,7 +1,7 @@
-# FundApps Tech Test
+# Courier Kata
 
 ## Introduction
-This is a tech test for FundApps, modelling a courier system in Ruby.  Ruby aside, the only other technology used is the RSpec testing framework.
+This is a courier system built in Ruby.  Ruby aside, the only other technology used is the RSpec testing framework.
 
 Instructions were to approach the project in a step wise manner without looking ahead to following tasks.
 Required output is a collection of items with their individual cost and type, with a total cost.  There is no limitation set on the inputs.
